@@ -5,7 +5,7 @@ import { useState } from "react";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   
-  const navItems = ["About", "Experience", "Projects", "Skills", "Contact"];
+  const navItems = ["About", "Experience", "Projects", "Skills", "Education", "Contact"];
   
   return (
     <nav className="fixed top-0 w-full bg-primary/95 backdrop-blur-sm z-50 border-b border-gray-800">
@@ -162,10 +162,10 @@ export default function App() {
             Hi, I'm <span className="gradient-text">Siri M</span>
           </h1>
           <p className="text-2xl md:text-3xl text-gray-400 mb-4">
-            Software Developer
+            Software Engineer
           </p>
           <p className="text-lg text-gray-500 max-w-2xl mb-8">
-            Building scalable backend systems, cloud-native platforms, and distributed architectures
+            Building backend services and integration-heavy platforms across research and enterprise systems
           </p>
           
           <div className="flex gap-4 justify-center flex-wrap">
@@ -192,7 +192,7 @@ export default function App() {
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
             </a>
-            <a href="mailto:sirimungi9@gmail.com"
+            <a href="mailto:Msirimungi9@gmail.com"
               className="text-gray-400 hover:text-accent transition-colors">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -210,18 +210,13 @@ export default function App() {
           viewport={{ once: true }}
           className="max-w-3xl mx-auto">
           <p className="text-lg text-gray-400 leading-relaxed mb-6">
-            I'm a <span className="text-accent font-semibold">Software Developer</span> with <span className="text-accent font-semibold">4+ years</span> of experience 
-            building production-grade backend systems, event-driven architectures, and cloud-native platforms.
+            <span className="text-accent font-semibold">Software Engineer</span> with <span className="text-accent font-semibold">4+ years</span> building backend services and integration-heavy platforms across research and enterprise financial systems. Hands-on ownership from design and implementation through testing, CI/CD, and production support.
           </p>
           <p className="text-lg text-gray-400 leading-relaxed mb-6">
-            My expertise lies in designing reliable, scalable systems that handle real-world complexity — from 
-            <span className="text-gray-300"> financial middleware processing thousands of transactions per hour</span> to 
-            <span className="text-gray-300"> research platforms coordinating distributed VR experiments on AWS</span>.
+            Known for <span className="text-gray-300">untangling legacy systems</span> (clearer interfaces, better tests, more predictable releases) and <span className="text-gray-300">shipping reliable software under real constraints</span> — from financial middleware handling thousands of transactions per hour to research platforms coordinating distributed VR experiments on AWS.
           </p>
           <p className="text-lg text-gray-400 leading-relaxed">
-            I specialize in <span className="text-accent">Java/Spring Boot</span>, <span className="text-accent">Node.js</span>, 
-            <span className="text-accent"> Apache Kafka</span>, and <span className="text-accent">AWS</span>, with a focus on 
-            building systems that are maintainable, testable, and production-ready.
+            <span className="text-accent">M.S. in Computer Science</span> with a focus on Machine Learning and Software Engineering. Specialize in <span className="text-accent">Java/Spring Boot</span>, <span className="text-accent">Node.js</span>, <span className="text-accent">AWS</span>, and <span className="text-accent">distributed systems</span>.
           </p>
         </motion.div>
       </Section>
@@ -239,28 +234,32 @@ export default function App() {
             <div className="mb-2">
               <h3 className="text-2xl font-bold text-gray-100">Software Developer</h3>
               <p className="text-accent font-semibold">University of Central Florida — VERA Lab</p>
-              <p className="text-gray-500">January 2025 – Present</p>
+              <p className="text-gray-500">June 2025 – Present</p>
             </div>
             <ul className="mt-4 space-y-3 text-gray-400">
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Led full-stack <strong className="text-gray-300">MERN development</strong> of collaborative VR research platform deployed on <strong className="text-gray-300">AWS</strong></span>
+                <span>Led end-to-end <strong className="text-gray-300">MERN stack</strong> development of collaborative VR research platform on <strong className="text-gray-300">AWS and Docker</strong>, enabling multiple research teams to design, run, and analyze Unity-based VR experiments with real-world participants</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Designed researcher collaboration & permission system reducing coordination overhead by <strong className="text-gray-300">70%</strong></span>
+                <span>Designed researcher collaborator system allowing multiple researchers to co-author experiments and manage permissions, reducing coordination overhead by <strong className="text-gray-300">~70%</strong></span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Built data ingestion & analytics pipeline using <strong className="text-gray-300">S3, Athena, EC2, and CloudWatch</strong></span>
+                <span>Built complete data collection and analysis pipeline integrated with <strong className="text-gray-300">AWS CloudWatch (S3, RUM, Athena, EC2)</strong> for experiment telemetry and participant metadata</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Introduced middleware architecture reducing production bugs by <strong className="text-gray-300">30%</strong></span>
+                <span>Introduced middleware-based architecture to centralize authentication, authorization, validation, and error handling, reducing production bugs by <strong className="text-gray-300">~30%</strong></span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Established <strong className="text-gray-300">Playwright & Jest</strong> E2E testing strategy for reliability</span>
+                <span>Implemented integrated survey and informed consent system grounded in VR research methodologies, improving completion rates and reducing invalid submissions</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent mt-1">▹</span>
+                <span>Established end-to-end testing strategy using <strong className="text-gray-300">Playwright & Jest</strong>, reducing UI-related issues by <strong className="text-gray-300">40%+</strong></span>
               </li>
             </ul>
           </motion.div>
@@ -274,28 +273,63 @@ export default function App() {
             <div className="mb-2">
               <h3 className="text-2xl font-bold text-gray-100">Software Engineer</h3>
               <p className="text-accent font-semibold">Temenos</p>
-              <p className="text-gray-500">July 2021 – August 2023</p>
+              <p className="text-gray-500">July 2021 – February 2023</p>
             </div>
             <ul className="mt-4 space-y-3 text-gray-400">
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Developed <strong className="text-gray-300">Spring Boot middleware APIs</strong> handling high-volume banking transactions</span>
+                <span>Owned development and maintenance of <strong className="text-gray-300">middleware APIs</strong> connecting mobile/web banking to core banking systems using <strong className="text-gray-300">Java, Spring Boot, and Hibernate</strong>, handling thousands of transactions per hour</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Built event-driven workflows using <strong className="text-gray-300">Apache Kafka</strong> for reliable message processing</span>
+                <span>Designed high-volume <strong className="text-gray-300">email notification service</strong> for 100,000+ users, reducing notification failures by <strong className="text-gray-300">90%+</strong> through queuing, retry mechanisms, and monitoring</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Reduced notification failures by <strong className="text-gray-300">90%</strong> via queue + retry architecture</span>
+                <span>Integrated <strong className="text-gray-300">Apache Kafka</strong> for asynchronous event-driven processing, improving fault isolation and system stability during downstream outages</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Led <strong className="text-gray-300">OAuth 2.0 & JWT</strong> security hardening across microservices</span>
+                <span>Led security hardening implementing <strong className="text-gray-300">OAuth 2.0 & JWT</strong>, including emergency response to Log4j zero-day vulnerability</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Optimized <strong className="text-gray-300">SQL/Hibernate</strong> queries reducing response times by <strong className="text-gray-300">30%</strong></span>
+                <span>Built middleware adapters integrating with <strong className="text-gray-300">Python, Go, Salesforce</strong>, and external partner platforms</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent mt-1">▹</span>
+                <span>Optimized <strong className="text-gray-300">SQL queries and Hibernate mappings</strong>, reducing average response times by <strong className="text-gray-300">~30%</strong></span>
+              </li>
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative pl-8 border-l-2 border-accent">
+            <div className="absolute -left-2 top-0 w-4 h-4 bg-accent rounded-full"></div>
+            <div className="mb-2">
+              <h3 className="text-2xl font-bold text-gray-100">Software Engineer Intern</h3>
+              <p className="text-accent font-semibold">Thomson Reuters</p>
+              <p className="text-gray-500">November 2020 – June 2021</p>
+            </div>
+            <ul className="mt-4 space-y-3 text-gray-400">
+              <li className="flex gap-3">
+                <span className="text-accent mt-1">▹</span>
+                <span>Built <strong className="text-gray-300">Angular-based user interfaces</strong> for indirect tax compliance system with MVC-driven screens for tax calculations and validation</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent mt-1">▹</span>
+                <span>Developed <strong className="text-gray-300">Selenium and Katalon Studio</strong> test suites for end-to-end workflows, reducing manual regression testing</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent mt-1">▹</span>
+                <span>Verified service contracts using <strong className="text-gray-300">SOAP UI</strong> with XML assertions and REST validations to prevent breaking changes</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-accent mt-1">▹</span>
+                <span>Extended backend endpoints using <strong className="text-gray-300">Java and Python</strong> within MVC architecture for UI features</span>
               </li>
             </ul>
           </motion.div>
@@ -309,44 +343,25 @@ export default function App() {
           
           <ProjectCard
             featured
-            title="VERA Platform - VR Research System"
-            description="Full-stack collaborative VR research platform with AWS data pipelines, researcher permission management, and real-time analytics. Handles complex multi-tenant workflows for university research."
-            tech={["Node.js", "React", "MongoDB", "AWS S3", "Athena", "CloudWatch"]}
+            title="Distributed Web Crawling and Indexing System"
+            description="Built horizontally scalable crawlers with rate limiting, deduplication, and fault tolerance using Kafka-backed task queues. Implemented orchestration and monitoring services to manage crawl jobs and persist metadata for downstream analytics and ML experimentation."
+            tech={["Kafka", "Java", "Docker", "Distributed Systems", "Task Queues"]}
             github="https://github.com/sirimungi"
           />
 
           <ProjectCard
             featured
-            title="Distributed Web Crawler"
-            description="Kafka-backed distributed crawling system with fault tolerance, deduplication, and scalable indexing pipelines. Handles concurrent crawling across multiple workers with message-driven coordination."
-            tech={["Kafka", "Java", "Redis", "Elasticsearch", "Docker"]}
-            github="https://github.com/sirimungi"
-          />
-
-          <ProjectCard
-            title="Phishing URL Detection (GAN)"
-            description="GAN-based phishing classifier trained on 1M+ URLs achieving 97.5% accuracy. Production microservice with sub-200ms inference latency using TensorFlow Serving."
-            tech={["Python", "TensorFlow", "Flask", "Docker", "scikit-learn"]}
+            title="Phishing URL Detection with GANs"
+            description="Trained a GAN-based phishing URL classifier on 1M+ URLs, reaching ~97.5% accuracy. Reduced false positives by 30% using a self-attention discriminator and deployed as a production microservice with sub-200ms inference latency."
+            tech={["Python", "GANs", "TensorFlow", "Flask", "Self-Attention", "Microservices"]}
             github="https://github.com/sirimungi"
           />
 
           <ProjectCard
             title="Service Reliability Monitoring Tool"
-            description="Log & metric ingestion platform detecting latency spikes and error bursts. Real-time alerting system with configurable thresholds and Slack integration."
-            tech={["Node.js", "InfluxDB", "Grafana", "Prometheus", "AWS"]}
+            description="Implemented a lightweight monitoring system that ingests application logs and metrics to detect anomalous behavior such as latency spikes and error bursts. Exposed trend analysis and alert inspection through a simple web interface, helping identify reliability issues before they impacted users."
+            tech={["Node.js", "Log Analysis", "Metrics", "Monitoring", "Alerting"]}
             github="https://github.com/sirimungi"
-          />
-
-          <ProjectCard
-            title="Banking Transaction Middleware"
-            description="High-throughput Spring Boot middleware for financial institutions. Handles transaction validation, routing, and settlement with 99.9% uptime SLA."
-            tech={["Spring Boot", "Kafka", "PostgreSQL", "Redis", "OAuth 2.0"]}
-          />
-
-          <ProjectCard
-            title="Event-Driven Notification System"
-            description="Kafka-based notification delivery platform with retry logic, dead-letter queues, and multi-channel support (email, SMS, push). Reduced failures by 90%."
-            tech={["Kafka", "Spring Boot", "RabbitMQ", "MongoDB", "Docker"]}
           />
 
         </div>
@@ -357,42 +372,89 @@ export default function App() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           
           <SkillCategory
+            title="Languages"
+            icon="💻"
+            skills={["Python", "Java", "JavaScript", "TypeScript", "C++", "C#", "SQL", "Bash", "Go"]}
+          />
+
+          <SkillCategory
             title="Backend & APIs"
             icon="⚙️"
-            skills={["Java", "Spring Boot", "Node.js", "Express", "REST APIs", "GraphQL", "Microservices"]}
+            skills={["Node.js", "Express", "Spring Boot", ".NET", "REST", "SOAP", "Microservices", "Flask", "FastAPI"]}
+          />
+
+          <SkillCategory
+            title="Frontend"
+            icon="🎨"
+            skills={["React", "Angular", "HTML/CSS", "AJAX", "MVC Patterns", "TypeScript"]}
           />
 
           <SkillCategory
             title="Databases"
             icon="💾"
-            skills={["PostgreSQL", "MongoDB", "MySQL", "Redis", "Hibernate", "SQL Optimization"]}
+            skills={["PostgreSQL", "MySQL", "MongoDB", "Redis", "DynamoDB", "Oracle", "Hibernate"]}
           />
 
           <SkillCategory
             title="Cloud & DevOps"
             icon="☁️"
-            skills={["AWS (EC2, S3, ECS)", "Docker", "Kubernetes", "CI/CD", "Terraform", "CloudWatch"]}
+            skills={["AWS (EC2, ECS, Lambda, S3)", "Azure", "GCP", "Docker", "Kubernetes", "Terraform"]}
           />
 
           <SkillCategory
-            title="Message Queues"
+            title="Testing & Automation"
+            icon="🧪"
+            skills={["Playwright", "Selenium", "Katalon Studio", "Jest", "JUnit", "pytest", "SOAP UI", "Postman"]}
+          />
+
+          <SkillCategory
+            title="CI/CD & Tools"
+            icon="🔧"
+            skills={["GitHub Actions", "Jenkins", "Maven", "Git", "Jira", "Confluence", "Linux/Unix"]}
+          />
+
+          <SkillCategory
+            title="Message Queues & Events"
             icon="📨"
-            skills={["Apache Kafka", "RabbitMQ", "Event-Driven Architecture", "Pub/Sub Patterns"]}
+            skills={["Apache Kafka", "RabbitMQ", "Event-Driven Architecture", "Async Processing"]}
           />
 
           <SkillCategory
             title="Security & Auth"
             icon="🔒"
-            skills={["OAuth 2.0", "JWT", "HTTPS/TLS", "API Security", "Data Encryption"]}
-          />
-
-          <SkillCategory
-            title="Testing & Tools"
-            icon="🧪"
-            skills={["Jest", "Playwright", "JUnit", "Git", "Postman", "Jira", "E2E Testing"]}
+            skills={["OAuth 2.0", "JWT", "IAM", "RBAC", "TLS", "Secure SDLC"]}
           />
 
         </div>
+      </Section>
+
+      {/* Education Section */}
+      <Section id="education" title="Education">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto">
+          
+          <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-8 border border-gray-700">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-100 mb-2">Master of Science – Computer Science</h3>
+                <p className="text-accent font-semibold text-lg">University of Central Florida</p>
+              </div>
+              <div className="text-gray-400 md:text-right mt-2 md:mt-0">
+                <p className="font-semibold">August 2023 – May 2025</p>
+                <p className="text-accent font-bold mt-1">GPA: 3.9/4.0</p>
+              </div>
+            </div>
+            <div className="mt-4">
+              <p className="text-gray-400">
+                <span className="text-gray-300 font-semibold">Specialization:</span> Machine Learning & Software Engineering
+              </p>
+            </div>
+          </div>
+
+        </motion.div>
       </Section>
 
       {/* Contact Section */}
@@ -408,7 +470,7 @@ export default function App() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a href="mailto:sirimungi9@gmail.com"
+            <a href="mailto:Msirimungi9@gmail.com"
               className="px-8 py-4 bg-accent hover:bg-accent/90 text-primary font-semibold rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -425,7 +487,7 @@ export default function App() {
           </div>
           
           <div className="text-gray-500">
-            <p>sirimungi9@gmail.com</p>
+            <p>Msirimungi9@gmail.com</p>
             <p className="mt-2">Based in Orlando, FL</p>
           </div>
         </motion.div>
