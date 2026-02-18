@@ -187,60 +187,17 @@ export default function App() {
       <Navbar />
       
       {/* Hero Section with Frame */}
-      <section id="home" className="min-h-screen flex justify-center items-center px-6 pt-24 pb-12 relative overflow-hidden">
-        {/* Floating Geometric Shapes */}
-        <div className="absolute top-24 left-12 w-20 h-20 border-4 border-accent/40 rotate-12 animate-float" style={{ transformStyle: 'preserve-3d' }}></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-accent/20 rotate-45 animate-bounce-slow"></div>
-        <div className="absolute bottom-32 left-24 w-24 h-24 border-4 border-accentLight/30 rotate-45 animate-spin-slow"></div>
-        <div className="absolute bottom-32 right-12 w-12 h-12 bg-highlight/30 rounded-full animate-pulse-slow"></div>
-        <div className="absolute top-1/2 right-32 w-20 h-20 border-4 border-accent/30 -rotate-12 animate-float" style={{ animationDelay: '1s' }}></div>
+      <section id="home" className="min-h-screen flex justify-center items-center px-4 md:px-6 pt-20 pb-8 relative overflow-hidden">
+        {/* Subtle Floating Geometric Shapes - Corners Only */}
+        <div className="absolute top-32 left-8 w-16 h-16 border-2 border-accent/30 rotate-12 animate-float"></div>
+        <div className="absolute top-32 right-8 w-12 h-12 border-2 border-accentLight/30 -rotate-12 animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-32 left-8 w-14 h-14 bg-accent/10 rotate-45 animate-pulse-slow"></div>
         
         {/* Main Hero Frame Container */}
-        <div className="hero-frame relative w-full max-w-7xl rounded-3xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-secondary/80 to-primary/80 backdrop-blur-sm">
-          {/* Social Icons - Left Edge */}
-          <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 flex-col gap-6 bg-secondary/90 p-4 rounded-2xl border-2 border-accent/40 shadow-lg">
-            <motion.a 
-              href="https://github.com/sirimungi" 
-              target="_blank"
-              whileHover={{ scale: 1.2, x: 10 }}
-              className="text-gray-400 hover:text-accent transition-all">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-              </svg>
-            </motion.a>
-            <motion.a 
-              href="https://linkedin.com/in/siri-mungi" 
-              target="_blank"
-              whileHover={{ scale: 1.2, x: 10 }}
-              className="text-gray-400 hover:text-accent transition-all">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-              </svg>
-            </motion.a>
-            <motion.a 
-              href="mailto:Msirimungi9@gmail.com"
-              whileHover={{ scale: 1.2, x: 10 }}
-              className="text-gray-400 hover:text-accent transition-all">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
-              </svg>
-            </motion.a>
-          </div>
-          
-          {/* Hamburger Menu - Top Left */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute top-8 left-8 lg:left-12">
-            <div className="w-8 h-6 flex flex-col justify-between cursor-pointer group">
-              <span className="w-full h-0.5 bg-white group-hover:bg-accent transition-colors"></span>
-              <span className="w-full h-0.5 bg-white group-hover:bg-accent transition-colors"></span>
-              <span className="w-full h-0.5 bg-white group-hover:bg-accent transition-colors"></span>
-            </div>
-          </motion.div>
+        <div className="hero-frame relative w-full max-w-6xl rounded-3xl p-6 md:p-10 lg:p-12 bg-gradient-to-br from-secondary/80 to-primary/90 backdrop-blur-sm">
           
           {/* Main Content - Split Layout */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[600px]">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[500px]">
             {/* Left Side - Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -392,19 +349,6 @@ export default function App() {
                   <path d="M -45 -160 Q 0 -175 45 -160" stroke="#ff6b35" strokeWidth="6" fill="none"/>
                 </g>
                 
-                {/* Floating emoji face */}
-                <g transform="translate(500, 200)" className="animate-bounce-slow">
-                  <circle cx="0" cy="0" r="40" fill="#ff6b35" opacity="0.9"/>
-                  <circle cx="-12" cy="-5" r="5" fill="#fff"/>
-                  <circle cx="12" cy="-5" r="5" fill="#fff"/>
-                  <path d="M -15 10 Q 0 20 15 10" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round"/>
-                </g>
-                
-                {/* Floating code symbols */}
-                <text x="80" y="150" className="text-3xl fill-accent opacity-60 animate-float">&lt;/&gt;</text>
-                <text x="480" y="400" className="text-3xl fill-accentLight opacity-60 animate-float" style={{ animationDelay: '1s' }}>{ }</text>
-                <text x="120" y="550" className="text-2xl fill-highlight opacity-60 animate-float" style={{ animationDelay: '0.5s' }}>( )</text>
-                
                 {/* Gradients */}
                 <defs>
                   <linearGradient id="screenOrange" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -413,30 +357,41 @@ export default function App() {
                   </linearGradient>
                 </defs>
               </svg>
-              
-              {/* Circular arrow button for slider */}
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="absolute -right-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border-2 border-accent bg-secondary/80 flex items-center justify-center hover:bg-accent/20 transition-all">
-                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </motion.button>
             </motion.div>
           </div>
           
-          {/* Scroll Down Indicator - Bottom Left */}
+          {/* Social Icons - Bottom Center */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 flex flex-col items-center gap-2">
-            <span className="text-gray-400 text-sm tracking-wider rotate-0 lg:-rotate-90 origin-center">SCROLL DOWN</span>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-0.5 h-12 bg-gradient-to-b from-accent to-transparent lg:rotate-0"></motion.div>
+            className="flex justify-center gap-6 mt-8 lg:hidden">
+            <motion.a 
+              href="https://github.com/sirimungi" 
+              target="_blank"
+              whileHover={{ scale: 1.2, y: -3 }}
+              className="text-gray-400 hover:text-accent transition-all">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </motion.a>
+            <motion.a 
+              href="https://linkedin.com/in/siri-mungi" 
+              target="_blank"
+              whileHover={{ scale: 1.2, y: -3 }}
+              className="text-gray-400 hover:text-accent transition-all">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+              </svg>
+            </motion.a>
+            <motion.a 
+              href="mailto:Msirimungi9@gmail.com"
+              whileHover={{ scale: 1.2, y: -3 }}
+              className="text-gray-400 hover:text-accent transition-all">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
+              </svg>
+            </motion.a>
           </motion.div>
         </div>
       </section>
