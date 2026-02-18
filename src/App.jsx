@@ -198,8 +198,10 @@ export default function App() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="relative z-10 w-full lg:w-1/2 max-w-sm md:max-w-md lg:max-w-lg order-2 lg:order-1">
-          <svg viewBox="0 0 500 500" className="w-full h-full drop-shadow-2xl">
+          className="relative z-10 w-full lg:w-1/2 max-w-sm md:max-w-md lg:max-w-lg order-2 lg:order-1"
+          style={{ minHeight: '400px' }}>
+          <div className="w-full h-full bg-secondary/20 rounded-3xl p-8 border border-accent/20">
+            <svg viewBox="0 0 500 500" className="w-full h-auto" style={{ minHeight: '350px' }}>
             {/* Desk */}
             <rect x="50" y="350" width="400" height="20" fill="#1a0b2e" rx="5">
               <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
@@ -311,6 +313,7 @@ export default function App() {
               </linearGradient>
             </defs>
           </svg>
+          </div>
         </motion.div>
         
         <motion.div
