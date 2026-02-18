@@ -187,18 +187,137 @@ export default function App() {
       <Navbar />
       
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-16 relative overflow-hidden">
+      <section id="home" className="min-h-screen flex flex-col lg:flex-row justify-center items-center text-center lg:text-left px-6 pt-16 relative overflow-hidden gap-12">
         {/* Animated background orbs */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-accentLight/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-highlight/10 rounded-full blur-3xl animate-pulse-slow"></div>
         
+        {/* Animated Developer Illustration */}
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
+          className="relative z-10 w-full lg:w-1/2 max-w-md lg:max-w-lg hidden lg:block">
+          <svg viewBox="0 0 500 500" className="w-full h-full drop-shadow-2xl">
+            {/* Desk */}
+            <rect x="50" y="350" width="400" height="20" fill="#1a0b2e" rx="5">
+              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+            </rect>
+            
+            {/* Monitor */}
+            <rect x="150" y="180" width="200" height="150" fill="#0a0118" stroke="#a855f7" strokeWidth="4" rx="8">
+              <animate attributeName="stroke" values="#a855f7;#d946ef;#fbbf24;#a855f7" dur="4s" repeatCount="indefinite"/>
+            </rect>
+            
+            {/* Screen Glow */}
+            <rect x="160" y="190" width="180" height="130" fill="url(#screenGlow)" rx="4"/>
+            
+            {/* Code Lines on Screen */}
+            <line x1="170" y1="205" x2="250" y2="205" stroke="#a855f7" strokeWidth="2">
+              <animate attributeName="x2" values="170;250;170" dur="2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="170" y1="220" x2="280" y2="220" stroke="#d946ef" strokeWidth="2">
+              <animate attributeName="x2" values="170;280;170" dur="2.5s" repeatCount="indefinite"/>
+            </line>
+            <line x1="170" y1="235" x2="230" y2="235" stroke="#fbbf24" strokeWidth="2">
+              <animate attributeName="x2" values="170;230;170" dur="1.8s" repeatCount="indefinite"/>
+            </line>
+            <line x1="170" y1="250" x2="320" y2="250" stroke="#a855f7" strokeWidth="2">
+              <animate attributeName="x2" values="170;320;170" dur="2.2s" repeatCount="indefinite"/>
+            </line>
+            <line x1="170" y1="265" x2="270" y2="265" stroke="#d946ef" strokeWidth="2">
+              <animate attributeName="x2" values="170;270;170" dur="2.8s" repeatCount="indefinite"/>
+            </line>
+            
+            {/* Monitor Stand */}
+            <rect x="230" y="330" width="40" height="30" fill="#1a0b2e" rx="3"/>
+            <rect x="200" y="355" width="100" height="10" fill="#1a0b2e" rx="5"/>
+            
+            {/* Developer Person */}
+            <g className="animate-float">
+              {/* Head */}
+              <circle cx="250" cy="320" r="25" fill="#d946ef">
+                <animate attributeName="cy" values="320;315;320" dur="3s" repeatCount="indefinite"/>
+              </circle>
+              
+              {/* Body */}
+              <rect x="230" y="342" width="40" height="50" fill="#a855f7" rx="8">
+                <animate attributeName="height" values="50;52;50" dur="3s" repeatCount="indefinite"/>
+              </rect>
+              
+              {/* Arms - Typing Animation */}
+              <g>
+                {/* Left Arm */}
+                <line x1="230" y1="350" x2="200" y2="365" stroke="#a855f7" strokeWidth="6" strokeLinecap="round">
+                  <animate attributeName="x2" values="200;195;200" dur="0.8s" repeatCount="indefinite"/>
+                  <animate attributeName="y2" values="365;368;365" dur="0.8s" repeatCount="indefinite"/>
+                </line>
+                
+                {/* Right Arm */}
+                <line x1="270" y1="350" x2="300" y2="365" stroke="#a855f7" strokeWidth="6" strokeLinecap="round">
+                  <animate attributeName="x2" values="300;305;300" dur="1s" repeatCount="indefinite"/>
+                  <animate attributeName="y2" values="365;368;365" dur="1s" repeatCount="indefinite"/>
+                </line>
+              </g>
+            </g>
+            
+            {/* Keyboard */}
+            <rect x="180" y="360" width="140" height="15" fill="#1a0b2e" stroke="#a855f7" strokeWidth="2" rx="3">
+              <animate attributeName="fill" values="#1a0b2e;#2a1b3e;#1a0b2e" dur="1.5s" repeatCount="indefinite"/>
+            </rect>
+            
+            {/* Floating Code Particles */}
+            <circle cx="100" cy="150" r="3" fill="#a855f7">
+              <animate attributeName="cy" values="150;100;150" dur="4s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="380" cy="200" r="3" fill="#d946ef">
+              <animate attributeName="cy" values="200;150;200" dur="5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0;1;0" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="120" cy="250" r="2" fill="#fbbf24">
+              <animate attributeName="cy" values="250;200;250" dur="3.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0;1;0" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            
+            {/* Coffee Cup */}
+            <g transform="translate(360, 340)">
+              <rect x="0" y="10" width="30" height="30" fill="#1a0b2e" stroke="#a855f7" strokeWidth="2" rx="3"/>
+              <rect x="5" y="15" width="20" height="20" fill="#fbbf24" opacity="0.3">
+                <animate attributeName="height" values="20;15;20" dur="2s" repeatCount="indefinite"/>
+              </rect>
+              {/* Steam */}
+              <path d="M 8 10 Q 8 0 10 0" stroke="#d946ef" strokeWidth="1.5" fill="none" opacity="0.6">
+                <animate attributeName="opacity" values="0.6;0.3;0.6" dur="2s" repeatCount="indefinite"/>
+              </path>
+              <path d="M 15 10 Q 15 -5 17 -5" stroke="#a855f7" strokeWidth="1.5" fill="none" opacity="0.6">
+                <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2.5s" repeatCount="indefinite"/>
+              </path>
+              <path d="M 22 10 Q 22 0 24 0" stroke="#fbbf24" strokeWidth="1.5" fill="none" opacity="0.6">
+                <animate attributeName="opacity" values="0.5;0.2;0.5" dur="2.2s" repeatCount="indefinite"/>
+              </path>
+            </g>
+            
+            {/* Gradients */}
+            <defs>
+              <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#a855f7" stopOpacity="0.2">
+                  <animate attributeName="stopColor" values="#a855f7;#d946ef;#fbbf24;#a855f7" dur="5s" repeatCount="indefinite"/>
+                </stop>
+                <stop offset="100%" stopColor="#d946ef" stopOpacity="0.1">
+                  <animate attributeName="stopColor" values="#d946ef;#fbbf24;#a855f7;#d946ef" dur="5s" repeatCount="indefinite"/>
+                </stop>
+              </linearGradient>
+            </defs>
+          </svg>
+        </motion.div>
+        
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10">
-          <motion.h1 
+          className="relative z-10 w-full lg:w-1/2">\n          <motion.h1 
             className="text-6xl md:text-8xl font-extrabold mb-6"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
@@ -228,7 +347,7 @@ export default function App() {
           </motion.p>
           
           <motion.div 
-            className="flex gap-6 justify-center flex-wrap mb-8"
+            className="flex gap-6 justify-center lg:justify-start flex-wrap mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}>
@@ -249,7 +368,7 @@ export default function App() {
           </motion.div>
           
           <motion.div 
-            className="flex gap-8 justify-center"
+            className="flex gap-8 justify-center lg:justify-start"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}>
