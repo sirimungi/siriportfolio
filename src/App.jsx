@@ -187,7 +187,7 @@ export default function App() {
       <Navbar />
       
       {/* Hero Section */}
-      <section id="home" className="min-h-screen flex flex-col lg:flex-row justify-center items-center text-center lg:text-left px-6 pt-16 relative overflow-hidden gap-12">
+      <section id="home" className="min-h-screen flex flex-col lg:flex-row flex-wrap justify-center items-center text-center lg:text-left px-6 pt-16 pb-8 relative overflow-hidden gap-8 lg:gap-12">
         {/* Animated background orbs */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-accentLight/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
@@ -195,10 +195,10 @@ export default function App() {
         
         {/* Animated Developer Illustration */}
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="relative z-10 w-full lg:w-1/2 max-w-md lg:max-w-lg hidden lg:block">
+          className="relative z-10 w-full lg:w-1/2 max-w-sm md:max-w-md lg:max-w-lg order-2 lg:order-1">
           <svg viewBox="0 0 500 500" className="w-full h-full drop-shadow-2xl">
             {/* Desk */}
             <rect x="50" y="350" width="400" height="20" fill="#1a0b2e" rx="5">
@@ -317,7 +317,7 @@ export default function App() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 w-full lg:w-1/2">\n          <motion.h1 
+          className="relative z-10 w-full lg:w-1/2 order-1 lg:order-2">\n          <motion.h1 
             className="text-6xl md:text-8xl font-extrabold mb-6"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
