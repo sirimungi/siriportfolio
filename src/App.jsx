@@ -186,225 +186,259 @@ export default function App() {
     <div className="relative min-h-screen">
       <Navbar />
       
-      {/* Hero Section */}
-      <section id="home" className="min-h-screen flex flex-col lg:flex-row flex-wrap justify-center items-center text-center lg:text-left px-6 pt-16 pb-8 relative overflow-hidden gap-8 lg:gap-12">
-        {/* Animated background orbs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accentLight/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-highlight/10 rounded-full blur-3xl animate-pulse-slow"></div>
+      {/* Hero Section with Frame */}
+      <section id="home" className="min-h-screen flex justify-center items-center px-6 pt-24 pb-12 relative overflow-hidden">
+        {/* Floating Geometric Shapes */}
+        <div className="absolute top-24 left-12 w-20 h-20 border-4 border-accent/40 rotate-12 animate-float" style={{ transformStyle: 'preserve-3d' }}></div>
+        <div className="absolute top-40 right-20 w-16 h-16 bg-accent/20 rotate-45 animate-bounce-slow"></div>
+        <div className="absolute bottom-32 left-24 w-24 h-24 border-4 border-accentLight/30 rotate-45 animate-spin-slow"></div>
+        <div className="absolute bottom-32 right-12 w-12 h-12 bg-highlight/30 rounded-full animate-pulse-slow"></div>
+        <div className="absolute top-1/2 right-32 w-20 h-20 border-4 border-accent/30 -rotate-12 animate-float" style={{ animationDelay: '1s' }}></div>
         
-        {/* Animated Developer Illustration */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="relative z-10 w-full lg:w-1/2 max-w-sm md:max-w-md lg:max-w-lg order-2 lg:order-1"
-          style={{ minHeight: '400px' }}>
-          <div className="w-full h-full bg-secondary/20 rounded-3xl p-8 border border-accent/20">
-            <svg viewBox="0 0 500 500" className="w-full h-auto" style={{ minHeight: '350px' }}>
-            {/* Desk */}
-            <rect x="50" y="350" width="400" height="20" fill="#1a0b2e" rx="5">
-              <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
-            </rect>
-            
-            {/* Monitor */}
-            <rect x="150" y="180" width="200" height="150" fill="#0a0118" stroke="#a855f7" strokeWidth="4" rx="8">
-              <animate attributeName="stroke" values="#a855f7;#d946ef;#fbbf24;#a855f7" dur="4s" repeatCount="indefinite"/>
-            </rect>
-            
-            {/* Screen Glow */}
-            <rect x="160" y="190" width="180" height="130" fill="url(#screenGlow)" rx="4"/>
-            
-            {/* Code Lines on Screen */}
-            <line x1="170" y1="205" x2="250" y2="205" stroke="#a855f7" strokeWidth="2">
-              <animate attributeName="x2" values="170;250;170" dur="2s" repeatCount="indefinite"/>
-            </line>
-            <line x1="170" y1="220" x2="280" y2="220" stroke="#d946ef" strokeWidth="2">
-              <animate attributeName="x2" values="170;280;170" dur="2.5s" repeatCount="indefinite"/>
-            </line>
-            <line x1="170" y1="235" x2="230" y2="235" stroke="#fbbf24" strokeWidth="2">
-              <animate attributeName="x2" values="170;230;170" dur="1.8s" repeatCount="indefinite"/>
-            </line>
-            <line x1="170" y1="250" x2="320" y2="250" stroke="#a855f7" strokeWidth="2">
-              <animate attributeName="x2" values="170;320;170" dur="2.2s" repeatCount="indefinite"/>
-            </line>
-            <line x1="170" y1="265" x2="270" y2="265" stroke="#d946ef" strokeWidth="2">
-              <animate attributeName="x2" values="170;270;170" dur="2.8s" repeatCount="indefinite"/>
-            </line>
-            
-            {/* Monitor Stand */}
-            <rect x="230" y="330" width="40" height="30" fill="#1a0b2e" rx="3"/>
-            <rect x="200" y="355" width="100" height="10" fill="#1a0b2e" rx="5"/>
-            
-            {/* Developer Person */}
-            <g className="animate-float">
-              {/* Head */}
-              <circle cx="250" cy="320" r="25" fill="#d946ef">
-                <animate attributeName="cy" values="320;315;320" dur="3s" repeatCount="indefinite"/>
-              </circle>
-              
-              {/* Body */}
-              <rect x="230" y="342" width="40" height="50" fill="#a855f7" rx="8">
-                <animate attributeName="height" values="50;52;50" dur="3s" repeatCount="indefinite"/>
-              </rect>
-              
-              {/* Arms - Typing Animation */}
-              <g>
-                {/* Left Arm */}
-                <line x1="230" y1="350" x2="200" y2="365" stroke="#a855f7" strokeWidth="6" strokeLinecap="round">
-                  <animate attributeName="x2" values="200;195;200" dur="0.8s" repeatCount="indefinite"/>
-                  <animate attributeName="y2" values="365;368;365" dur="0.8s" repeatCount="indefinite"/>
-                </line>
-                
-                {/* Right Arm */}
-                <line x1="270" y1="350" x2="300" y2="365" stroke="#a855f7" strokeWidth="6" strokeLinecap="round">
-                  <animate attributeName="x2" values="300;305;300" dur="1s" repeatCount="indefinite"/>
-                  <animate attributeName="y2" values="365;368;365" dur="1s" repeatCount="indefinite"/>
-                </line>
-              </g>
-            </g>
-            
-            {/* Keyboard */}
-            <rect x="180" y="360" width="140" height="15" fill="#1a0b2e" stroke="#a855f7" strokeWidth="2" rx="3">
-              <animate attributeName="fill" values="#1a0b2e;#2a1b3e;#1a0b2e" dur="1.5s" repeatCount="indefinite"/>
-            </rect>
-            
-            {/* Floating Code Particles */}
-            <circle cx="100" cy="150" r="3" fill="#a855f7">
-              <animate attributeName="cy" values="150;100;150" dur="4s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="380" cy="200" r="3" fill="#d946ef">
-              <animate attributeName="cy" values="200;150;200" dur="5s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="0;1;0" dur="5s" repeatCount="indefinite"/>
-            </circle>
-            <circle cx="120" cy="250" r="2" fill="#fbbf24">
-              <animate attributeName="cy" values="250;200;250" dur="3.5s" repeatCount="indefinite"/>
-              <animate attributeName="opacity" values="0;1;0" dur="3.5s" repeatCount="indefinite"/>
-            </circle>
-            
-            {/* Coffee Cup */}
-            <g transform="translate(360, 340)">
-              <rect x="0" y="10" width="30" height="30" fill="#1a0b2e" stroke="#a855f7" strokeWidth="2" rx="3"/>
-              <rect x="5" y="15" width="20" height="20" fill="#fbbf24" opacity="0.3">
-                <animate attributeName="height" values="20;15;20" dur="2s" repeatCount="indefinite"/>
-              </rect>
-              {/* Steam */}
-              <path d="M 8 10 Q 8 0 10 0" stroke="#d946ef" strokeWidth="1.5" fill="none" opacity="0.6">
-                <animate attributeName="opacity" values="0.6;0.3;0.6" dur="2s" repeatCount="indefinite"/>
-              </path>
-              <path d="M 15 10 Q 15 -5 17 -5" stroke="#a855f7" strokeWidth="1.5" fill="none" opacity="0.6">
-                <animate attributeName="opacity" values="0.4;0.7;0.4" dur="2.5s" repeatCount="indefinite"/>
-              </path>
-              <path d="M 22 10 Q 22 0 24 0" stroke="#fbbf24" strokeWidth="1.5" fill="none" opacity="0.6">
-                <animate attributeName="opacity" values="0.5;0.2;0.5" dur="2.2s" repeatCount="indefinite"/>
-              </path>
-            </g>
-            
-            {/* Gradients */}
-            <defs>
-              <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#a855f7" stopOpacity="0.2">
-                  <animate attributeName="stopColor" values="#a855f7;#d946ef;#fbbf24;#a855f7" dur="5s" repeatCount="indefinite"/>
-                </stop>
-                <stop offset="100%" stopColor="#d946ef" stopOpacity="0.1">
-                  <animate attributeName="stopColor" values="#d946ef;#fbbf24;#a855f7;#d946ef" dur="5s" repeatCount="indefinite"/>
-                </stop>
-              </linearGradient>
-            </defs>
-          </svg>
-          </div>
-        </motion.div>
-        
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 w-full lg:w-1/2 order-1 lg:order-2">\n          <motion.h1 
-            className="text-6xl md:text-8xl font-extrabold mb-6"
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}>
-            Hi, I'm <span className="gradient-text">Siri M</span>
-          </motion.h1>
-          <motion.p 
-            className="text-3xl md:text-4xl text-gray-300 mb-6 font-bold"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}>
-            Software Engineer
-          </motion.p>
-          <motion.p 
-            className="text-xl text-gray-400 max-w-3xl mb-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}>
-            <span className="text-accent font-semibold">Backend & Distributed Systems</span> (Java/Node/AWS)
-          </motion.p>
-          <motion.p 
-            className="text-lg text-gray-500 max-w-2xl mb-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}>
-            <span className="text-gray-400">Cloud-Native Services</span> | <span className="text-gray-400">Microservices</span> | <span className="text-gray-400">Full-Stack</span>
-          </motion.p>
-          
-          <motion.div 
-            className="flex gap-6 justify-center lg:justify-start flex-wrap mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}>
-            <motion.a 
-              href="#projects"
-              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)" }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-accent to-accentLight text-white font-bold rounded-xl transition-all shadow-lg shadow-accent/30">
-              View My Work →
-            </motion.a>
-            <motion.a 
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-accent text-accent hover:bg-accent/10 font-bold rounded-xl transition-all">
-              Get In Touch
-            </motion.a>
-          </motion.div>
-          
-          <motion.div 
-            className="flex gap-8 justify-center lg:justify-start"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}>
+        {/* Main Hero Frame Container */}
+        <div className="hero-frame relative w-full max-w-7xl rounded-3xl p-8 md:p-12 lg:p-16 bg-gradient-to-br from-secondary/80 to-primary/80 backdrop-blur-sm">
+          {/* Social Icons - Left Edge */}
+          <div className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 flex-col gap-6 bg-secondary/90 p-4 rounded-2xl border-2 border-accent/40 shadow-lg">
             <motion.a 
               href="https://github.com/sirimungi" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, rotate: 5, color: "#a855f7" }}
-              className="text-gray-400 hover:text-accent transition-colors">
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              target="_blank"
+              whileHover={{ scale: 1.2, x: 10 }}
+              className="text-gray-400 hover:text-accent transition-all">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
             </motion.a>
             <motion.a 
               href="https://linkedin.com/in/siri-mungi" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.2, rotate: -5, color: "#a855f7" }}
-              className="text-gray-400 hover:text-accent transition-colors">
-              <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+              target="_blank"
+              whileHover={{ scale: 1.2, x: 10 }}
+              className="text-gray-400 hover:text-accent transition-all">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
               </svg>
             </motion.a>
             <motion.a 
               href="mailto:Msirimungi9@gmail.com"
-              whileHover={{ scale: 1.2, rotate: 5, color: "#a855f7" }}
-              className="text-gray-400 hover:text-accent transition-colors">
-              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              whileHover={{ scale: 1.2, x: 10 }}
+              className="text-gray-400 hover:text-accent transition-all">
+              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/>
               </svg>
             </motion.a>
+          </div>
+          
+          {/* Hamburger Menu - Top Left */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="absolute top-8 left-8 lg:left-12">
+            <div className="w-8 h-6 flex flex-col justify-between cursor-pointer group">
+              <span className="w-full h-0.5 bg-white group-hover:bg-accent transition-colors"></span>
+              <span className="w-full h-0.5 bg-white group-hover:bg-accent transition-colors"></span>
+              <span className="w-full h-0.5 bg-white group-hover:bg-accent transition-colors"></span>
+            </div>
           </motion.div>
-        </motion.div>
+          
+          {/* Main Content - Split Layout */}
+          <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[600px]">
+            {/* Left Side - Content */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-left space-y-6">
+              
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-gray-400 text-lg font-light tracking-widest">
+                Hello 👋
+              </motion.div>
+              
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-5xl md:text-7xl font-extrabold leading-tight">
+                I'm <span className="text-white">Siri Mungi</span>
+              </motion.h1>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="text-2xl md:text-3xl text-gray-300 font-medium">
+                A <span className="gradient-text font-bold">Software Engineer</span> specializing in
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+                className="text-lg text-gray-400 leading-relaxed max-w-xl">
+                <span className="text-accent font-semibold">Backend & Distributed Systems</span> • Cloud-Native Architecture • 
+                Microservices • <span className="text-accentLight">Financial Services</span> • Banking Systems
+              </motion.p>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.8 }}
+                className="pt-6">
+                <motion.a
+                  href="#projects"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-accent to-accentLight text-white font-bold text-lg rounded-xl shadow-lg shadow-accent/50 hover:shadow-accent/70 transition-all">
+                  Learn more
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </motion.a>
+              </motion.div>
+            </motion.div>
+            
+            {/* Right Side - 3D Developer Illustration */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="relative flex justify-center items-center">
+              
+              {/* 3D Character Illustration */}
+              <svg viewBox="0 0 600 700" className="w-full max-w-md md:max-w-lg">
+                {/* Shadow */}
+                <ellipse cx="300" cy="650" rx="180" ry="30" fill="#000" opacity="0.3">
+                  <animate attributeName="rx" values="180;200;180" dur="4s" repeatCount="indefinite"/>
+                </ellipse>
+                
+                {/* Person Base - Sitting Cross-legged */}
+                <g transform="translate(300, 400)">
+                  {/* Legs crossed */}
+                  <ellipse cx="-40" cy="100" rx="35" ry="15" fill="#ff8555" transform="rotate(-20)"/>
+                  <ellipse cx="40" cy="100" rx="35" ry="15" fill="#ff6b35" transform="rotate(20)"/>
+                  <path d="M -50 80 Q -60 100 -70 110" stroke="#ff6b35" strokeWidth="25" fill="none" strokeLinecap="round"/>
+                  <path d="M 50 80 Q 60 100 70 110" stroke="#ff8555" strokeWidth="25" fill="none" strokeLinecap="round"/>
+                  
+                  {/* Body/Torso */}
+                  <ellipse cx="0" cy="0" rx="70" ry="90" fill="#ff6b35">
+                    <animate attributeName="ry" values="90;93;90" dur="3s" repeatCount="indefinite"/>
+                  </ellipse>
+                  
+                  {/* Shirt detail */}
+                  <path d="M -50 0 Q 0 10 50 0" stroke="#ff8555" strokeWidth="3" fill="none"/>
+                  
+                  {/* Arms holding laptop */}
+                  <g className="animate-float">
+                    {/* Left arm */}
+                    <path d="M -50 -20 Q -90 0 -100 40" stroke="#ff6b35" strokeWidth="22" fill="none" strokeLinecap="round">
+                      <animate attributeName="d" values="M -50 -20 Q -90 0 -100 40;M -50 -20 Q -90 0 -100 45;M -50 -20 Q -90 0 -100 40" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                    {/* Right arm */}
+                    <path d="M 50 -20 Q 90 0 100 40" stroke="#ff8555" strokeWidth="22" fill="none" strokeLinecap="round">
+                      <animate attributeName="d" values="M 50 -20 Q 90 0 100 40;M 50 -20 Q 90 0 100 45;M 50 -20 Q 90 0 100 40" dur="2s" repeatCount="indefinite"/>
+                    </path>
+                  </g>
+                  
+                  {/* Laptop */}
+                  <g transform="translate(0, 50)">
+                    {/* Laptop base */}
+                    <rect x="-80" y="-5" width="160" height="12" fill="#1a1a1a" rx="4"/>
+                    {/* Laptop screen */}
+                    <g transform="rotate(-10)">
+                      <rect x="-75" y="-90" width="150" height="100" fill="#0a0a0a" stroke="#ff6b35" strokeWidth="4" rx="6"/>
+                      {/* Screen glow */}
+                      <rect x="-68" y="-82" width="136" height="84" fill="url(#screenOrange)" rx="4"/>
+                      {/* Code lines on screen */}
+                      <line x1="-60" y1="-70" x2="0" y2="-70" stroke="#ff6b35" strokeWidth="2.5">
+                        <animate attributeName="x2" values="-60;0;-60" dur="2s" repeatCount="indefinite"/>
+                      </line>
+                      <line x1="-60" y1="-55" x2="30" y2="-55" stroke="#ff8555" strokeWidth="2.5">
+                        <animate attributeName="x2" values="-60;30;-60" dur="2.5s" repeatCount="indefinite"/>
+                      </line>
+                      <line x1="-60" y1="-40" x2="-10" y2="-40" stroke="#ffa500" strokeWidth="2.5">
+                        <animate attributeName="x2" values="-60;-10;-60" dur="1.8s" repeatCount="indefinite"/>
+                      </line>
+                      <line x1="-60" y1="-25" x2="50" y2="-25" stroke="#ff6b35" strokeWidth="2.5">
+                        <animate attributeName="x2" values="-60;50;-60" dur="2.2s" repeatCount="indefinite"/>
+                      </line>
+                    </g>
+                  </g>
+                  
+                  {/* Neck */}
+                  <rect x="-15" y="-90" width="30" height="25" fill="#ffa085" rx="8"/>
+                  
+                  {/* Head */}
+                  <circle cx="0" cy="-120" r="50" fill="#ffb499">
+                    <animate attributeName="cy" values="-120;-117;-120" dur="3s" repeatCount="indefinite"/>
+                  </circle>
+                  
+                  {/* Face details */}
+                  <circle cx="-18" cy="-125" r="4" fill="#333"/>
+                  <circle cx="18" cy="-125" r="4" fill="#333"/>
+                  <path d="M -12 -110 Q 0 -105 12 -110" stroke="#333" strokeWidth="2" fill="none"/>
+                  
+                  {/* Hair */}
+                  <path d="M -35 -145 Q -50 -130 -45 -110 L -45 -100 Q -48 -140 -35 -150 Z" fill="#1a1a1a"/>
+                  <path d="M 35 -145 Q 50 -130 45 -110 L 45 -100 Q 48 -140 35 -150 Z" fill="#1a1a1a"/>
+                  <ellipse cx="0" cy="-150" rx="50" ry="35" fill="#1a1a1a"/>
+                  
+                  {/* Headphones */}
+                  <path d="M -50 -135 Q -65 -120 -65 -100" stroke="#ff6b35" strokeWidth="5" fill="none" strokeLinecap="round"/>
+                  <path d="M 50 -135 Q 65 -120 65 -100" stroke="#ff6b35" strokeWidth="5" fill="none" strokeLinecap="round"/>
+                  <circle cx="-65" cy="-110" r="12" fill="#ff6b35"/>
+                  <circle cx="65" cy="-110" r="12" fill="#ff6b35"/>
+                  <path d="M -45 -160 Q 0 -175 45 -160" stroke="#ff6b35" strokeWidth="6" fill="none"/>
+                </g>
+                
+                {/* Floating emoji face */}
+                <g transform="translate(500, 200)" className="animate-bounce-slow">
+                  <circle cx="0" cy="0" r="40" fill="#ff6b35" opacity="0.9"/>
+                  <circle cx="-12" cy="-5" r="5" fill="#fff"/>
+                  <circle cx="12" cy="-5" r="5" fill="#fff"/>
+                  <path d="M -15 10 Q 0 20 15 10" stroke="#fff" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                </g>
+                
+                {/* Floating code symbols */}
+                <text x="80" y="150" className="text-3xl fill-accent opacity-60 animate-float">&lt;/&gt;</text>
+                <text x="480" y="400" className="text-3xl fill-accentLight opacity-60 animate-float" style={{ animationDelay: '1s' }}>{ }</text>
+                <text x="120" y="550" className="text-2xl fill-highlight opacity-60 animate-float" style={{ animationDelay: '0.5s' }}>( )</text>
+                
+                {/* Gradients */}
+                <defs>
+                  <linearGradient id="screenOrange" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#ff6b35" stopOpacity="0.3"/>
+                    <stop offset="100%" stopColor="#ff8555" stopOpacity="0.1"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              
+              {/* Circular arrow button for slider */}
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="absolute -right-4 top-1/2 -translate-y-1/2 w-14 h-14 rounded-full border-2 border-accent bg-secondary/80 flex items-center justify-center hover:bg-accent/20 transition-all">
+                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </motion.button>
+            </motion.div>
+          </div>
+          
+          {/* Scroll Down Indicator - Bottom Left */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 lg:left-12 lg:translate-x-0 flex flex-col items-center gap-2">
+            <span className="text-gray-400 text-sm tracking-wider rotate-0 lg:-rotate-90 origin-center">SCROLL DOWN</span>
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-0.5 h-12 bg-gradient-to-b from-accent to-transparent lg:rotate-0"></motion.div>
+          </motion.div>
+        </div>
       </section>
 
       {/* About Section */}
