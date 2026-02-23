@@ -1,15 +1,39 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        primary: "#0a0a0a",
-        secondary: "#1a1a1a",
-        accent: "#ff6b35",
-        accentLight: "#ff8555",
-        highlight: "#ffa500",
-        dark: "#000000",
+        // Light mode colors
+        paper: "#F5F5F0",
+        beige: {
+          light: "#E8DCC4",
+          DEFAULT: "#D4C4B0",
+          dark: "#C4B4A0",
+        },
+        dusty: {
+          light: "#A89B8E",
+          DEFAULT: "#9B8B7E",
+          dark: "#8A7A6D",
+        },
+        lavender: {
+          light: "#C8B9E4",
+          DEFAULT: "#B8A9D4",
+          dark: "#9B88B8",
+        },
+        // Dark mode colors
+        overcast: {
+          light: "#3D4E60",
+          DEFAULT: "#2C3E50",
+          dark: "#1A2530",
+        },
+        // Shared/accent colors
+        accent: {
+          light: "#C8B9E4",
+          DEFAULT: "#B8A9D4",
+          dark: "#9B88B8",
+        },
       },
       animation: {
         'gradient': 'gradient 8s linear infinite',
