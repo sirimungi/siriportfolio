@@ -62,10 +62,14 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
         <motion.a 
           href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           whileHover={{ scale: 1.1, rotate: 5 }}
-          className="text-3xl font-bold gradient-text">
+          className="text-3xl font-bold gradient-text cursor-pointer">
           SM
         </motion.a>
         
@@ -288,8 +292,8 @@ export default function App() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
                 className="text-lg text-dusty dark:text-beige leading-relaxed max-w-xl">
-                <span className="text-lavender-dark dark:text-lavender-light font-semibold">Backend & Distributed Systems</span> • Cloud-Native Architecture • 
-                Microservices • <span className="text-lavender dark:text-lavender-light">Financial Services</span> • Banking Systems
+                <span className="text-lavender-dark dark:text-lavender-light font-semibold">Backend & Distributed Systems</span> (Java/Node/AWS) • 
+                Cloud-Native Services • Full-Stack
               </motion.p>
               
               <motion.div
@@ -310,135 +314,239 @@ export default function App() {
               </motion.div>
             </motion.div>
             
-            {/* Right Side - Modern Developer Workspace Illustration */}
+            {/* Right Side - Animated Developer with Laptop Illustration */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
               className="relative flex justify-center items-center">
               
-              {/* Modern Abstract Developer Illustration */}
-              <svg viewBox="0 0 600 600" className="w-full max-w-md md:max-w-lg">
+              {/* Animated Developer Character */}
+              <svg viewBox="0 0 600 700" className="w-full max-w-md md:max-w-lg">
                 <defs>
-                  <linearGradient id="codeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" className="dark:stop-lavender-light stop-lavender-dark" stopOpacity="0.8"/>
-                    <stop offset="100%" className="dark:stop-lavender-dark stop-lavender" stopOpacity="0.6"/>
+                  <linearGradient id="skinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#FFD1B8" stopOpacity="1"/>
+                    <stop offset="100%" stopColor="#FFC4A8" stopOpacity="1"/>
                   </linearGradient>
-                  <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" className="dark:stop-lavender-light stop-lavender-dark" stopOpacity="0.3"/>
-                    <stop offset="100%" className="dark:stop-dusty stop-dusty-light" stopOpacity="0.1"/>
+                  <linearGradient id="laptopScreen" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#B8A9D4" stopOpacity="0.4"/>
+                    <stop offset="100%" stopColor="#9B88B8" stopOpacity="0.2"/>
                   </linearGradient>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-                    <feMerge>
-                      <feMergeNode in="coloredBlur"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
-                  </filter>
+                  <linearGradient id="shirtGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#9B88B8" stopOpacity="1"/>
+                    <stop offset="100%" stopColor="#B8A9D4" stopOpacity="1"/>
+                  </linearGradient>
+                  <radialGradient id="glowEffect">
+                    <stop offset="0%" stopColor="#B8A9D4" stopOpacity="0.6"/>
+                    <stop offset="100%" stopColor="#B8A9D4" stopOpacity="0"/>
+                  </radialGradient>
                 </defs>
                 
-                {/* Floating Code Window */}
-                <g transform="translate(300, 250)">
-                  {/* Main code window */}
-                  <motion.rect 
-                    x="-180" y="-120" width="360" height="240" 
-                    className="fill-paper dark:fill-overcast-dark" 
-                    stroke="url(#codeGradient)" 
-                    strokeWidth="3" 
-                    rx="12"
-                    initial={{ y: -120 }}
-                    animate={{ y: [-120, -115, -120] }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                {/* Floating particles/sparkles */}
+                <g opacity="0.4">
+                  <motion.circle cx="150" cy="150" r="3" className="fill-lavender"
+                    animate={{ y: [0, -20, 0], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 3, repeat: Infinity, delay: 0 }}
                   />
+                  <motion.circle cx="450" cy="200" r="2" className="fill-dusty"
+                    animate={{ y: [0, -15, 0], opacity: [0.3, 0.7, 0.3] }}
+                    transition={{ duration: 4, repeat: Infinity, delay: 1 }}
+                  />
+                  <motion.circle cx="500" cy="350" r="3" className="fill-lavender-light"
+                    animate={{ y: [0, -18, 0], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 3.5, repeat: Infinity, delay: 0.5 }}
+                  />
+                  <motion.circle cx="100" cy="400" r="2" className="fill-dusty-light"
+                    animate={{ y: [0, -12, 0], opacity: [0.3, 0.6, 0.3] }}
+                    transition={{ duration: 3.2, repeat: Infinity, delay: 1.5 }}
+                  />
+                </g>
+                
+                {/* Shadow beneath character */}
+                <ellipse cx="300" cy="650" rx="200" ry="35" fill="url(#glowEffect)" opacity="0.3">
+                  <animate attributeName="rx" values="200;220;200" dur="4s" repeatCount="indefinite"/>
+                </ellipse>
+                
+                {/* Person sitting with laptop */}
+                <g transform="translate(300, 400)">
                   
-                  {/* Window header */}
-                  <rect x="-180" y="-120" width="360" height="40" className="fill-lavender/20 dark:fill-lavender-dark/20" rx="12"/>
-                  <circle cx="-150" cy="-100" r="6" className="fill-dusty-dark dark:fill-dusty-light"/>
-                  <circle cx="-130" cy="-100" r="6" className="fill-dusty dark:fill-dusty-light"/>
-                  <circle cx="-110" cy="-100" r="6" className="fill-lavender dark:fill-lavender-light"/>
+                  {/* Desk/Table surface */}
+                  <rect x="-180" y="90" width="360" height="15" rx="5" className="fill-dusty/40 dark:fill-dusty-light/30"/>
                   
-                  {/* Code lines with animation */}
-                  <g className="code-lines">
-                    <rect x="-160" y="-60" width="120" height="8" className="fill-lavender dark:fill-lavender-light" rx="4" opacity="0.8">
-                      <animate attributeName="width" values="120;140;120" dur="3s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect x="-160" y="-40" width="200" height="8" className="fill-dusty dark:fill-dusty-light" rx="4" opacity="0.8">
-                      <animate attributeName="width" values="200;180;200" dur="2.5s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect x="-160" y="-20" width="160" height="8" className="fill-lavender-dark dark:fill-lavender" rx="4" opacity="0.8">
-                      <animate attributeName="width" values="160;190;160" dur="2.8s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect x="-160" y="0" width="180" height="8" className="fill-dusty-dark dark:fill-beige" rx="4" opacity="0.8">
-                      <animate attributeName="width" values="180;160;180" dur="3.2s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect x="-160" y="20" width="140" height="8" className="fill-lavender dark:fill-lavender-light" rx="4" opacity="0.8">
-                      <animate attributeName="width" values="140;170;140" dur="2.7s" repeatCount="indefinite"/>
-                    </rect>
-                    <rect x="-160" y="40" width="210" height="8" className="fill-dusty dark:fill-dusty-light" rx="4" opacity="0.8">
-                      <animate attributeName="width" values="210;190;210" dur="3.1s" repeatCount="indefinite"/>
-                    </rect>
+                  {/* Coffee cup on desk */}
+                  <g transform="translate(120, 75)">
+                    <rect x="-12" y="0" width="24" height="30" rx="3" className="fill-beige dark:fill-beige-light" stroke="#9B88B8" strokeWidth="1.5"/>
+                    <ellipse cx="0" cy="0" rx="13" ry="5" className="fill-dusty-light dark:fill-dusty"/>
+                    {/* Steam from coffee */}
+                    <motion.path d="M -8 -5 Q -8 -15 -5 -20" stroke="#B8A9D4" strokeWidth="1.5" fill="none" opacity="0.6"
+                      animate={{ opacity: [0.6, 0.2, 0.6], y: [0, -3, 0] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    <motion.path d="M 0 -5 Q 0 -18 3 -23" stroke="#B8A9D4" strokeWidth="1.5" fill="none" opacity="0.6"
+                      animate={{ opacity: [0.6, 0.2, 0.6], y: [0, -3, 0] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
+                    />
                   </g>
                   
-                  {/* Cursor blinking */}
-                  <rect x="60" y="36" width="3" height="12" className="fill-lavender-dark dark:fill-lavender-light">
-                    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
-                  </rect>
-                </g>
-                
-                {/* Floating geometric shapes representing data/cloud */}
-                <g opacity="0.6">
-                  {/* Hexagon cluster - top right */}
+                  {/* Legs (sitting position) */}
+                  <g>
+                    {/* Left leg */}
+                    <path d="M -45 85 Q -50 110 -60 130" stroke="#5A4A6A" strokeWidth="22" fill="none" strokeLinecap="round"/>
+                    <ellipse cx="-60" cy="135" rx="18" ry="12" fill="#4A3A5A"/>
+                    
+                    {/* Right leg */}
+                    <path d="M 45 85 Q 50 110 60 130" stroke="#5A4A6A" strokeWidth="22" fill="none" strokeLinecap="round"/>
+                    <ellipse cx="60" cy="135" rx="18" ry="12" fill="#4A3A5A"/>
+                  </g>
+                  
+                  {/* Torso/Body */}
+                  <ellipse cx="0" cy="0" rx="75" ry="95" fill="url(#shirtGradient)">
+                    <animate attributeName="ry" values="95;98;95" dur="3s" repeatCount="indefinite"/>
+                  </ellipse>
+                  
+                  {/* Collar detail */}
+                  <path d="M -30 -40 Q 0 -30 30 -40" stroke="#8A7A9A" strokeWidth="3" fill="none"/>
+                  
+                  {/* Arms typing on laptop */}
                   <motion.g
-                    animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}>
-                    <path d="M 450 100 L 470 110 L 470 130 L 450 140 L 430 130 L 430 110 Z" 
-                          className="fill-lavender/30 dark:fill-lavender-light/20" 
-                          stroke="url(#codeGradient)" strokeWidth="2"/>
-                    <path d="M 480 120 L 495 128 L 495 144 L 480 152 L 465 144 L 465 128 Z" 
-                          className="fill-dusty/30 dark:fill-dusty-light/20" 
-                          stroke="url(#codeGradient)" strokeWidth="2"/>
+                    animate={{ y: [0, 2, 0] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
+                    {/* Left arm */}
+                    <path d="M -60 -10 Q -100 20 -110 55" stroke="url(#skinGradient)" strokeWidth="20" fill="none" strokeLinecap="round"/>
+                    <circle cx="-110" cy="60" r="12" fill="#FFD1B8"/>
+                    
+                    {/* Right arm */}
+                    <path d="M 60 -10 Q 100 20 110 55" stroke="url(#skinGradient)" strokeWidth="20" fill="none" strokeLinecap="round"/>
+                    <circle cx="110" cy="60" r="12" fill="#FFC4A8"/>
                   </motion.g>
                   
-                  {/* Circle cluster - bottom left */}
-                  <motion.g
-                    animate={{ y: [0, 10, 0], x: [0, -5, 0] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}>
-                    <circle cx="120" cy="480" r="25" className="fill-lavender/20 dark:fill-lavender-dark/20" 
-                            stroke="url(#codeGradient)" strokeWidth="2"/>
-                    <circle cx="170" cy="500" r="18" className="fill-dusty/20 dark:fill-dusty-light/20" 
-                            stroke="url(#codeGradient)" strokeWidth="2"/>
-                  </motion.g>
+                  {/* Laptop */}
+                  <g transform="translate(0, 55)">
+                    {/* Laptop base/keyboard */}
+                    <rect x="-95" y="0" width="190" height="15" rx="5" className="fill-overcast-dark dark:fill-beige-dark" stroke="#7A6A8A" strokeWidth="2"/>
+                    <rect x="-85" y="3" width="170" height="9" rx="2" className="fill-dusty-dark/20 dark:fill-beige/20"/>
+                    
+                    {/* Laptop screen */}
+                    <g transform="rotate(-10)" transformOrigin="0 0">
+                      <rect x="-90" y="-110" width="180" height="120" rx="8" className="fill-overcast-dark dark:fill-overcast" stroke="#B8A9D4" strokeWidth="3"/>
+                      
+                      {/* Screen content with glow */}
+                      <rect x="-82" y="-102" width="164" height="104" rx="5" fill="url(#laptopScreen)"/>
+                      
+                      {/* Code lines on screen - animated */}
+                      <g opacity="0.9">
+                        <rect x="-70" y="-90" width="80" height="5" rx="2" className="fill-lavender-light dark:fill-lavender">
+                          <animate attributeName="width" values="80;95;80" dur="2.5s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="-70" y="-75" width="120" height="5" rx="2" className="fill-dusty-light dark:fill-dusty">
+                          <animate attributeName="width" values="120;110;120" dur="3s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="-70" y="-60" width="90" height="5" rx="2" className="fill-lavender dark:fill-lavender-light">
+                          <animate attributeName="width" values="90;105;90" dur="2.8s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="-70" y="-45" width="130" height="5" rx="2" className="fill-beige-dark dark:fill-beige">
+                          <animate attributeName="width" values="130;120;130" dur="3.2s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="-70" y="-30" width="75" height="5" rx="2" className="fill-lavender-light dark:fill-lavender">
+                          <animate attributeName="width" values="75;90;75" dur="2.6s" repeatCount="indefinite"/>
+                        </rect>
+                        <rect x="-70" y="-15" width="110" height="5" rx="2" className="fill-dusty dark:fill-dusty-light">
+                          <animate attributeName="width" values="110;100;110" dur="3.1s" repeatCount="indefinite"/>
+                        </rect>
+                      </g>
+                      
+                      {/* Blinking cursor */}
+                      <rect x="45" y="-18" width="2" height="7" className="fill-lavender-light dark:fill-lavender">
+                        <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+                      </rect>
+                    </g>
+                  </g>
                   
-                  {/* Triangle - top left */}
-                  <motion.path 
-                    d="M 100 150 L 130 150 L 115 120 Z" 
-                    className="fill-lavender-dark/20 dark:fill-lavender/20" 
-                    stroke="url(#codeGradient)" strokeWidth="2"
-                    animate={{ rotate: [0, 10, 0], y: [0, -8, 0] }}
-                    transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  {/* Neck */}
+                  <rect x="-18" y="-95" width="36" height="28" rx="8" fill="#FFD1B8"/>
+                  
+                  {/* Head */}
+                  <motion.ellipse cx="0" cy="-130" rx="52" ry="58" fill="url(#skinGradient)"
+                    animate={{ y: [0, -2, 0] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                   />
+                  
+                  {/* Facial features */}
+                  <g>
+                    {/* Eyes - focused on screen */}
+                    <ellipse cx="-20" cy="-135" rx="5" ry="7" fill="#3A2A4A"/>
+                    <ellipse cx="20" cy="-135" rx="5" ry="7" fill="#3A2A4A"/>
+                    {/* Eye shine */}
+                    <circle cx="-18" cy="-137" r="2" fill="#FFFFFF" opacity="0.8"/>
+                    <circle cx="22" cy="-137" r="2" fill="#FFFFFF" opacity="0.8"/>
+                    
+                    {/* Eyebrows */}
+                    <path d="M -30 -145 Q -20 -147 -12 -146" stroke="#3A2A4A" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                    <path d="M 12 -146 Q 20 -147 30 -145" stroke="#3A2A4A" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+                    
+                    {/* Smile - concentrated */}
+                    <path d="M -18 -115 Q 0 -112 18 -115" stroke="#3A2A4A" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                  </g>
+                  
+                  {/* Hair - modern style */}
+                  <g>
+                    <ellipse cx="0" cy="-160" rx="55" ry="38" className="fill-overcast-dark dark:fill-dusty-dark"/>
+                    <path d="M -45 -155 Q -55 -140 -50 -120" className="fill-overcast-dark dark:fill-dusty-dark"/>
+                    <path d="M 45 -155 Q 55 -140 50 -120" className="fill-overcast-dark dark:fill-dusty-dark"/>
+                    {/* Hair strands for detail */}
+                    <path d="M -25 -180 Q -20 -170 -22 -160" stroke="#2A1A3A" strokeWidth="2" opacity="0.3" fill="none"/>
+                    <path d="M 0 -185 Q 0 -175 1 -165" stroke="#2A1A3A" strokeWidth="2" opacity="0.3" fill="none"/>
+                    <path d="M 25 -180 Q 20 -170 22 -160" stroke="#2A1A3A" strokeWidth="2" opacity="0.3" fill="none"/>
+                  </g>
+                  
+                  {/* Headphones - detailed */}
+                  <g>
+                    {/* Headband */}
+                    <path d="M -50 -145 Q 0 -190 50 -145" stroke="#B8A9D4" strokeWidth="8" fill="none" strokeLinecap="round"/>
+                    <path d="M -48 -145 Q 0 -185 48 -145" stroke="#9B88B8" strokeWidth="4" fill="none" strokeLinecap="round"/>
+                    
+                    {/* Left ear cup */}
+                    <ellipse cx="-52" cy="-120" rx="18" ry="22" fill="#B8A9D4" stroke="#9B88B8" strokeWidth="2"/>
+                    <ellipse cx="-52" cy="-120" rx="12" ry="16" className="fill-overcast-dark dark:fill-beige-dark" opacity="0.6"/>
+                    {/* Sound waves */}
+                    <motion.circle cx="-52" cy="-120" r="8" stroke="#C8B9E4" strokeWidth="1.5" fill="none" opacity="0.6"
+                      animate={{ r: [8, 12, 8], opacity: [0.6, 0, 0.6] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    
+                    {/* Right ear cup */}
+                    <ellipse cx="52" cy="-120" rx="18" ry="22" fill="#B8A9D4" stroke="#9B88B8" strokeWidth="2"/>
+                    <ellipse cx="52" cy="-120" rx="12" ry="16" className="fill-overcast-dark dark:fill-beige-dark" opacity="0.6"/>
+                    {/* Sound waves */}
+                    <motion.circle cx="52" cy="-120" r="8" stroke="#C8B9E4" strokeWidth="1.5" fill="none" opacity="0.6"
+                      animate={{ r: [8, 12, 8], opacity: [0.6, 0, 0.6] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                    />
+                  </g>
                 </g>
                 
-                {/* Binary/data streams in background */}
-                <g opacity="0.15" className="text-lavender dark:text-lavender-light">
-                  <text x="50" y="100" className="fill-current text-xs font-mono">01001000</text>
-                  <text x="480" y="180" className="fill-current text-xs font-mono">11010110</text>
-                  <text x="80" y="380" className="fill-current text-xs font-mono">10110101</text>
-                  <text x="500" y="420" className="fill-current text-xs font-mono">01110011</text>
-                </g>
-                
-                {/* Connecting lines/network effect */}
-                <g opacity="0.3" stroke="url(#codeGradient)" strokeWidth="1.5" fill="none">
-                  <motion.line 
-                    x1="450" y1="120" x2="320" y2="200"
-                    animate={{ opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  />
-                  <motion.line 
-                    x1="120" y1="480" x2="260" y2="370"
-                    animate={{ opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: 1 }}
-                  />
+                {/* Floating code symbols around character */}
+                <g opacity="0.4" className="text-lavender dark:text-lavender-light">
+                  <motion.text x="80" y="250" className="text-2xl font-mono" fill="currentColor"
+                    animate={{ y: [0, -10, 0], opacity: [0.4, 0.7, 0.4] }}
+                    transition={{ duration: 3, repeat: Infinity }}>
+                    {'{ }'}
+                  </motion.text>
+                  <motion.text x="480" y="300" className="text-2xl font-mono" fill="currentColor"
+                    animate={{ y: [0, -12, 0], opacity: [0.4, 0.7, 0.4] }}
+                    transition={{ duration: 3.5, repeat: Infinity, delay: 1 }}>
+                    {'< />'}
+                  </motion.text>
+                  <motion.text x="120" y="520" className="text-xl font-mono" fill="currentColor"
+                    animate={{ x: [0, -8, 0], opacity: [0.4, 0.6, 0.4] }}
+                    transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}>
+                    ()
+                  </motion.text>
+                  <motion.text x="450" y="480" className="text-2xl font-mono" fill="currentColor"
+                    animate={{ y: [0, -8, 0], opacity: [0.4, 0.7, 0.4] }}
+                    transition={{ duration: 3.2, repeat: Infinity, delay: 1.5 }}>
+                    [ ]
+                  </motion.text>
                 </g>
               </svg>
             </motion.div>
@@ -471,7 +579,7 @@ export default function App() {
               </svg>
             </motion.a>
             <motion.a 
-              href="mailto:Msirimungi9@gmail.com"
+              href="mailto:sirimungi9@gmail.com"
               whileHover={{ scale: 1.2, y: -3 }}
               className="text-dusty dark:text-beige hover:text-lavender dark:hover:text-lavender-light transition-all">
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -504,7 +612,7 @@ export default function App() {
       {/* Experience Section */}
       <Section id="experience" title="Experience" className="bg-lavender/5 dark:bg-overcast/30">
         <div className="space-y-12 max-w-4xl mx-auto">
-          
+          {/* UCF VERA Lab */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -514,36 +622,33 @@ export default function App() {
             <div className="mb-2">
               <h3 className="text-2xl font-bold text-overcast-dark dark:text-paper">Software Developer</h3>
               <p className="text-lavender-dark dark:text-lavender-light font-semibold">University of Central Florida — VERA Lab</p>
-              <p className="text-dusty dark:text-beige-light">June 2025 – Present | <span className="text-dusty-dark dark:text-beige">VR/AR Research • Cloud Platform • AWS</span></p>
+              <p className="text-dusty dark:text-beige-light">Jun 2025 – Present | <span className="text-dusty-dark dark:text-beige">Backend, Distributed Systems, AWS</span></p>
             </div>
             <ul className="mt-4 space-y-3 text-gray-400">
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Architected and built <strong className="text-lavender-dark dark:text-lavender-light">distributed backend platform on AWS</strong> to orchestrate experiment workflows, participant sessions, and <strong className="text-lavender-dark dark:text-lavender-light">telemetry ingestion</strong>, designing <strong className="text-lavender-dark dark:text-lavender-light">REST APIs</strong>, structured <strong className="text-lavender-dark dark:text-lavender-light">data schemas</strong>, and <strong className="text-lavender-dark dark:text-lavender-light">event-driven processing</strong> for concurrent <strong className="text-dusty-dark dark:text-beige-light">VR experiment execution</strong></span>
+                <span>Built a distributed backend on AWS to run VR experiments at scale—think dozens of researchers, hundreds of participants, and a lot of moving parts. Designed the APIs, data models, and event-driven flows from scratch, then kept them running (and debuggable) in production.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Designed researcher collaborator system with permissions management, reducing coordination overhead by <strong className="text-dusty-dark dark:text-beige-light">~70%</strong>, using <strong className="text-lavender-dark dark:text-lavender-light">Node.js/Express</strong> and <strong className="text-lavender-dark dark:text-lavender-light">MongoDB</strong></span>
+                <span>Created a collaborator system so researchers could co-author, manage permissions, and run live studies together. This cut down on Slack chaos and made multi-researcher VR studies actually possible (and less stressful).</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Built complete <strong className="text-lavender-dark dark:text-lavender-light">data collection and analysis pipeline</strong> with <strong className="text-lavender-dark dark:text-lavender-light">AWS CloudWatch (S3, RUM, Athena, EC2)</strong>, structured storage, and visualization for experiment <strong className="text-lavender-dark dark:text-lavender-light">telemetry</strong> and participant metadata</span>
+                <span>Refactored a legacy Node.js codebase with middleware for auth, validation, and error handling—no more copy-paste bugs, and onboarding new devs got way easier.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Introduced <strong className="text-lavender-dark dark:text-lavender-light">middleware-based architecture</strong> to <strong className="text-lavender-dark dark:text-lavender-light">Node.js</strong> codebase for centralized authentication, authorization, validation, logging, and error handling, reducing bugs by <strong className="text-dusty-dark dark:text-beige-light">~30%</strong></span>
+                <span>Integrated survey and consent flows based on real VR research, so we could trust our data and keep IRB happy. Dynamic surveys, better completion rates, fewer headaches.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Implemented integrated survey and informed consent system, improving completion rates using <strong className="text-lavender-dark dark:text-lavender-light">React</strong> frontend and <strong className="text-lavender-dark dark:text-lavender-light">RESTful backend APIs</strong></span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-accent mt-1">▹</span>
-                <span>Established end-to-end testing with <strong className="text-lavender-dark dark:text-lavender-light">Playwright & Jest</strong>, reducing UI issues by <strong className="text-dusty-dark dark:text-beige-light">40%+</strong> with full CI/CD integration</span>
+                <span>Set up end-to-end tests with Playwright and Jest—caught bugs before they hit users, and let us ship changes without breaking everything else.</span>
               </li>
             </ul>
           </motion.div>
 
+          {/* UCF Teaching/Research Assistant */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -552,29 +657,30 @@ export default function App() {
             <div className="absolute -left-2 top-0 w-4 h-4 bg-lavender rounded-full"></div>
             <div className="mb-2">
               <h3 className="text-2xl font-bold text-overcast-dark dark:text-paper">Graduate Teaching & Research Assistant</h3>
-              <p className="text-lavender-dark dark:text-lavender-light font-semibold">University of Central Florida</p>
-              <p className="text-dusty dark:text-beige-light">Jan 2024 – May 2025 | <span className="text-dusty-dark dark:text-beige">Full-Stack Development • Backend Mentoring • Testing</span></p>
+              <p className="text-lavender-dark dark:text-lavender-light font-semibold">University of Central Florida (VERA Lab)</p>
+              <p className="text-dusty dark:text-beige-light">Jan 2024 – May 2025 | <span className="text-dusty-dark dark:text-beige">Full-Stack, Mentoring, Testing</span></p>
             </div>
             <ul className="mt-4 space-y-3 text-gray-400">
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Supported <strong className="text-dusty-dark dark:text-beige-light">200+ students</strong> in full-stack development course covering <strong className="text-lavender-dark dark:text-lavender-light">React</strong>, <strong className="text-lavender-dark dark:text-lavender-light">Node.js/Express</strong>, <strong className="text-lavender-dark dark:text-lavender-light">MongoDB</strong>, <strong className="text-lavender-dark dark:text-lavender-light">REST APIs</strong>, and deployment strategies</span>
+                <span>Guided 100+ students through building real web apps—React, Node, SQL, the works. Debugged everything from broken login flows to SQL joins gone wild.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Provided office hours support on <strong className="text-lavender-dark dark:text-lavender-light">backend architecture</strong>, <strong className="text-lavender-dark dark:text-lavender-light">API design</strong>, <strong className="text-lavender-dark dark:text-lavender-light">authentication patterns (OAuth, JWT)</strong>, deployment, and <strong className="text-lavender-dark dark:text-lavender-light">debugging distributed applications</strong></span>
+                <span>Reviewed backend projects for clean routing, layered design, and secure auth. Helped students see why "just make it work" isn't enough for production code.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Guided students on <strong className="text-lavender-dark dark:text-lavender-light">testing practices (unit, integration, E2E)</strong>, <strong className="text-lavender-dark dark:text-lavender-light">CI/CD pipelines</strong>, and debugging production deployments on <strong className="text-lavender-dark dark:text-lavender-light">AWS</strong> and <strong className="text-lavender-dark dark:text-lavender-light">Vercel</strong></span>
+                <span>Ran labs on database modeling, indexing, and query optimization—because slow queries are the worst.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Mentored capstone teams on <strong className="text-lavender-dark dark:text-lavender-light">database modeling (SQL/NoSQL)</strong>, <strong className="text-lavender-dark dark:text-lavender-light">RESTful API development</strong>, and <strong className="text-lavender-dark dark:text-lavender-light">microservices communication</strong></span>
+                <span>Co-created grading rubrics and project specs to keep things fair and focused on real-world skills, not just "does it run?"</span>
               </li>
             </ul>
           </motion.div>
 
+          {/* Temenos */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -584,40 +690,33 @@ export default function App() {
             <div className="mb-2">
               <h3 className="text-2xl font-bold text-overcast-dark dark:text-paper">Software Engineer</h3>
               <p className="text-lavender-dark dark:text-lavender-light font-semibold">Temenos</p>
-              <p className="text-dusty dark:text-beige-light">July 2021 – July 2023 | <span className="text-dusty-dark dark:text-beige">Financial Services • Banking Middleware • Microservices</span></p>
+              <p className="text-dusty dark:text-beige-light">Jul 2021 – Feb 2023 | <span className="text-dusty-dark dark:text-beige">Banking Middleware, Java, Spring Boot</span></p>
             </div>
             <ul className="mt-4 space-y-3 text-gray-400">
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Owned development and maintenance of <strong className="text-lavender-dark dark:text-lavender-light">middleware APIs</strong> connecting <strong className="text-lavender-dark dark:text-lavender-light">mobile/web banking</strong> to <strong className="text-lavender-dark dark:text-lavender-light">core banking systems</strong> using <strong className="text-lavender-dark dark:text-lavender-light">Java, Spring Boot, and Hibernate</strong>, handling thousands of <strong className="text-lavender-dark dark:text-lavender-light">transactions</strong> per hour for <strong className="text-dusty-dark dark:text-beige-light">100,000+ users</strong></span>
+                <span>Kept critical banking APIs running—Java, Spring Boot, Hibernate—handling thousands of transactions per hour. If something broke, I was on the call (and fixing it fast).</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Designed high-volume <strong className="text-lavender-dark dark:text-lavender-light">email notification service</strong> for <strong className="text-lavender-dark dark:text-lavender-light">banking platform</strong>, reducing notification failures by <strong className="text-dusty-dark dark:text-beige-light">90%+</strong> through <strong className="text-lavender-dark dark:text-lavender-light">queuing, retry mechanisms</strong>, and monitoring</span>
+                <span>Designed and shipped a high-volume email notification service for 100k+ users. Built in queuing, retries, and monitoring so alerts actually got delivered, even during peak hours.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Integrated <strong className="text-lavender-dark dark:text-lavender-light">Apache Kafka</strong> for <strong className="text-lavender-dark dark:text-lavender-light">asynchronous event-driven processing</strong>, improving fault isolation and system stability during downstream outages</span>
+                <span>Helped lead the security response to Log4j—patched, tested, and then overhauled our auth to use OAuth 2.0 and JWT. No more "just trust the header" hacks.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Led <strong className="text-lavender-dark dark:text-lavender-light">security hardening</strong> implementing <strong className="text-lavender-dark dark:text-lavender-light">OAuth 2.0 & JWT</strong> authentication, including emergency response to Log4j zero-day vulnerability</span>
+                <span>Integrated Java services with Python, Go, Salesforce, and more—making sure data moved smoothly between systems (and didn’t break in the middle of the night).</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Built <strong className="text-lavender-dark dark:text-lavender-light">middleware adapters</strong> integrating with <strong className="text-lavender-dark dark:text-lavender-light">Python, Go, Salesforce</strong>, and external partner platforms for <strong className="text-lavender-dark dark:text-lavender-light">heterogeneous system communication</strong></span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-accent mt-1">▹</span>
-                <span>Optimized <strong className="text-lavender-dark dark:text-lavender-light">SQL queries and Hibernate mappings (PostgreSQL, MySQL, Oracle)</strong>, reducing average response times by <strong className="text-dusty-dark dark:text-beige-light">~30%</strong></span>
-              </li>
-              <li className="flex gap-3">
-                <span className="text-accent mt-1">▹</span>
-                <span>Explored <strong className="text-lavender-dark dark:text-lavender-light">LLM-driven automation</strong> for internal knowledge retrieval and issue triage, experimenting with <strong className="text-lavender-dark dark:text-lavender-light">RAG (Retrieval-Augmented Generation)</strong> pipelines</span>
+                <span>Optimized SQL and Hibernate mappings to cut response times by 30%. Tuning queries is my kind of puzzle.</span>
               </li>
             </ul>
           </motion.div>
 
+          {/* Thomson Reuters */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -627,28 +726,27 @@ export default function App() {
             <div className="mb-2">
               <h3 className="text-2xl font-bold text-overcast-dark dark:text-paper">Software Engineer Intern</h3>
               <p className="text-lavender-dark dark:text-lavender-light font-semibold">Thomson Reuters</p>
-              <p className="text-dusty dark:text-beige-light">November 2020 – June 2021 | <span className="text-dusty-dark dark:text-beige">Tax Compliance • Full-Stack • Testing</span></p>
+              <p className="text-dusty dark:text-beige-light">Nov 2020 – Jun 2021 | <span className="text-dusty-dark dark:text-beige">Tax Compliance, .NET, Angular</span></p>
             </div>
             <ul className="mt-4 space-y-3 text-gray-400">
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Built <strong className="text-lavender-dark dark:text-lavender-light">Angular-based user interfaces</strong> for indirect tax compliance system with MVC-driven screens for tax calculations and validation</span>
+                <span>Built and tested backend endpoints in C#/.NET for tax compliance features—lots of edge cases, lots of regulatory rules, and lots of learning.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Developed <strong className="text-lavender-dark dark:text-lavender-light">Selenium and Katalon Studio</strong> test suites for end-to-end workflows, reducing manual regression testing</span>
+                <span>Developed Angular UIs that made complex tax calculations actually understandable for users (and for me, after a few tries).</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Verified service contracts using <strong className="text-lavender-dark dark:text-lavender-light">SOAP UI</strong> with <strong className="text-lavender-dark dark:text-lavender-light">XML assertions and REST validations</strong> to prevent breaking changes</span>
+                <span>Automated end-to-end tests with Selenium and Katalon Studio, so we could catch bugs before our customers did.</span>
               </li>
               <li className="flex gap-3">
                 <span className="text-accent mt-1">▹</span>
-                <span>Extended backend endpoints using <strong className="text-lavender-dark dark:text-lavender-light">Java and Python</strong> within MVC architecture for UI features</span>
+                <span>Verified service contracts with SOAP UI and REST validations—no breaking changes on my watch.</span>
               </li>
             </ul>
           </motion.div>
-
         </div>
       </Section>
 
@@ -658,14 +756,6 @@ export default function App() {
           
           <ProjectCard
             featured
-            title="Distributed Web Crawling and Indexing System"
-            description="Built horizontally scalable crawlers with rate limiting, deduplication, and fault tolerance using Kafka-backed task queues. Implemented orchestration and monitoring services to manage crawl jobs and persist metadata for downstream analytics and ML experimentation."
-            tech={["Kafka", "Java", "Docker", "Distributed Systems", "Microservices"]}
-            github="https://github.com/sirimungi"
-          />
-
-          <ProjectCard
-            featured
             title="Phishing URL Detection with GANs"
             description="Trained a GAN-based phishing URL classifier on 1M+ URLs, reaching ~97.5% accuracy. Reduced false positives by 30% using a self-attention discriminator and deployed as a production microservice with sub-200ms inference latency."
             tech={["Python", "GANs", "TensorFlow", "Flask", "Machine Learning"]}
@@ -673,9 +763,24 @@ export default function App() {
           />
 
           <ProjectCard
+            featured
+            title="Distributed Web Crawling and Indexing System"
+            description="Built horizontally scalable crawlers with rate limiting, deduplication, and fault tolerance using Kafka-backed task queues. Implemented orchestration and monitoring services to manage crawl jobs and persist metadata for downstream analytics and ML experimentation."
+            tech={["Kafka", "Java", "Docker", "Distributed Systems", "Microservices"]}
+            github="https://github.com/sirimungi"
+          />
+
+          <ProjectCard
             title="LLM-Based Retrieval System (RAG)"
             description="Built a retrieval-augmented generation pipeline to answer domain-specific questions over internal documents. Implemented document chunking, embedding generation, and semantic search to retrieve relevant context before passing it to an LLM for response synthesis."
-            tech={["Python", "RAG", "LLMs", "Embeddings", "Semantic Search", "Vector DB"]}
+            tech={["Python", "RAG", "LLMs", "Embeddings", "Semantic Search"]}
+            github="https://github.com/sirimungi"
+          />
+
+          <ProjectCard
+            title="Service Reliability Monitoring Tool"
+            description="Implemented a lightweight monitoring system that ingests application logs and metrics to detect anomalous behavior such as latency spikes and error bursts. Exposed trend analysis and alert inspection through a simple web interface."
+            tech={["Python", "Monitoring", "Analytics", "Web Interface"]}
             github="https://github.com/sirimungi"
           />
 
@@ -689,7 +794,7 @@ export default function App() {
           <SkillCategory
             title="Languages"
             icon="💻"
-            skills={["Python", "Java", "JavaScript", "TypeScript", "C++", "C#", "SQL", "Bash", "Go"]}
+            skills={["Python", "Java", "C++", "C#", "JavaScript", "TypeScript", "SQL", "Bash", "Go"]}
           />
 
           <SkillCategory
@@ -701,43 +806,43 @@ export default function App() {
           <SkillCategory
             title="Frontend"
             icon="🎨"
-            skills={["React", "Angular", "HTML/CSS", "AJAX", "MVC Patterns", "TypeScript"]}
+            skills={["React", "Angular", "HTML/CSS", "JavaScript", "TypeScript", "MVC Patterns"]}
           />
 
           <SkillCategory
-            title="Databases"
+            title="Datastores"
             icon="💾"
-            skills={["PostgreSQL", "MySQL", "MongoDB", "Redis", "DynamoDB", "Oracle", "Hibernate"]}
+            skills={["PostgreSQL", "MySQL", "MSSQL", "MongoDB", "Redis", "DynamoDB", "Oracle", "MariaDB"]}
           />
 
           <SkillCategory
             title="Cloud & DevOps"
             icon="☁️"
-            skills={["AWS (EC2, ECS, Lambda, S3)", "Azure", "GCP", "Docker", "Kubernetes", "Terraform"]}
+            skills={["AWS (EC2, ECS, Lambda, S3, CloudWatch)", "Azure", "GCP", "Docker", "Kubernetes", "Terraform"]}
           />
 
           <SkillCategory
             title="Testing & Automation"
             icon="🧪"
-            skills={["Playwright", "Selenium", "Katalon Studio", "Jest", "JUnit", "pytest", "SOAP UI", "Postman"]}
+            skills={["Playwright", "Selenium", "Katalon Studio", "Jest", "JUnit", "pytest", "Testcontainers", "Postman", "SOAP UI"]}
           />
 
           <SkillCategory
             title="CI/CD & Tools"
             icon="🔧"
-            skills={["GitHub Actions", "Jenkins", "Maven", "Git", "Jira", "Confluence", "Linux/Unix"]}
+            skills={["GitHub Actions", "Jenkins", "Maven", "Git", "Linux/Unix", "Jira", "Confluence", "Notion", "Figma"]}
           />
 
           <SkillCategory
-            title="Message Queues & Events"
-            icon="📨"
-            skills={["Apache Kafka", "RabbitMQ", "Event-Driven Architecture", "Async Processing"]}
+            title="Data & Analytics"
+            icon="📊"
+            skills={["Metabase", "Data Modeling", "Experiment Analytics", "Dashboards", "Data Validation"]}
           />
 
           <SkillCategory
-            title="Security & Auth"
+            title="Architecture & Security"
             icon="🔒"
-            skills={["OAuth 2.0", "JWT", "IAM", "RBAC", "TLS", "Secure SDLC"]}
+            skills={["Distributed Systems", "Event-Driven Architecture", "OAuth 2.0", "JWT", "IAM", "RBAC", "TLS"]}
           />
 
         </div>
@@ -785,7 +890,7 @@ export default function App() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <a href="mailto:Msirimungi9@gmail.com"
+            <a href="mailto:sirimungi9@gmail.com"
               className="px-8 py-4 bg-lavender hover:bg-lavender/90 dark:bg-lavender-dark dark:hover:bg-lavender text-paper dark:text-paper font-semibold rounded-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -802,7 +907,7 @@ export default function App() {
           </div>
           
           <div className="text-dusty dark:text-beige-light">
-            <p>Msirimungi9@gmail.com</p>
+            <p>sirimungi9@gmail.com</p>
             <p className="mt-2">Based in Orlando, FL</p>
           </div>
         </motion.div>

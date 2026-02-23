@@ -20,7 +20,7 @@ body {
 
 /* Light mode background */
 body {
-  background: linear-gradient(135deg, #F5F5F0 0%, #E8DCC4 50%, #D4C4B0 100%);
+  background: linear-gradient(135deg, #F5F5F0 0%, #e5e1d7 50%, #ede2d5 100%);
   background-size: 400% 400%;
   animation: bgGradient 20s ease infinite;
 }
