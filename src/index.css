@@ -81,3 +81,13 @@ body {
     @apply inline-block rounded border border-green bg-transparent px-7 py-4 font-mono text-sm text-green transition-colors hover:bg-green/10;
   }
 }
+
+@keyframes wag {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(12deg); }
+}
+
+.animate-wag {
+  transform-origin: 88px 70px;
+  animation: wag 2.8s ease-in-out infinite;
+}

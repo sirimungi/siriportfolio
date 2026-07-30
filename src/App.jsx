@@ -86,6 +86,90 @@ const projects = [
   },
 ];
 
+function Highlight({ href, children }) {
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="link-green">
+        {children}
+      </a>
+    );
+  }
+  return <span className="text-green">{children}</span>;
+}
+
+function CuteCat({ className = "" }) {
+  return (
+    <svg viewBox="0 0 120 120" className={className} aria-hidden>
+      <ellipse cx="60" cy="78" rx="32" ry="26" fill="#233554" />
+      <circle cx="60" cy="48" r="28" fill="#233554" />
+      <path d="M36 36 L32 12 L52 30 Z" fill="#233554" />
+      <path d="M84 36 L88 12 L68 30 Z" fill="#233554" />
+      <path d="M38 34 L34 16 L50 30 Z" fill="#64ffda" opacity="0.35" />
+      <path d="M82 34 L86 16 L70 30 Z" fill="#64ffda" opacity="0.35" />
+      <ellipse cx="48" cy="48" rx="4" ry="5" fill="#64ffda" />
+      <ellipse cx="72" cy="48" rx="4" ry="5" fill="#64ffda" />
+      <circle cx="49.5" cy="47" r="1.4" fill="#0a192f" />
+      <circle cx="73.5" cy="47" r="1.4" fill="#0a192f" />
+      <path d="M60 54 L56 60 L60 58 L64 60 Z" fill="#64ffda" />
+      <path d="M60 58 Q48 62 42 58" stroke="#8892b0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <path d="M60 58 Q72 62 78 58" stroke="#8892b0" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+      <path d="M28 58 H42" stroke="#8892b0" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M28 64 H40" stroke="#8892b0" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M78 58 H92" stroke="#8892b0" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M80 64 H92" stroke="#8892b0" strokeWidth="1.2" strokeLinecap="round" />
+      <path d="M88 70 Q108 50 102 88" stroke="#233554" strokeWidth="8" fill="none" strokeLinecap="round" className="origin-top animate-wag" />
+      <circle cx="102" cy="90" r="5" fill="#64ffda" opacity="0.7" />
+    </svg>
+  );
+}
+
+function CuteDuck({ className = "" }) {
+  return (
+    <svg viewBox="0 0 120 120" className={className} aria-hidden>
+      <ellipse cx="58" cy="78" rx="34" ry="24" fill="#ccd6f6" />
+      <circle cx="72" cy="44" r="22" fill="#ccd6f6" />
+      <ellipse cx="72" cy="36" rx="14" ry="10" fill="#64ffda" opacity="0.45" />
+      <path d="M90 48 L112 44 L90 56 Z" fill="#64ffda" />
+      <circle cx="78" cy="42" r="3.2" fill="#0a192f" />
+      <circle cx="79" cy="41" r="1" fill="#ccd6f6" />
+      <ellipse cx="48" cy="82" rx="10" ry="7" fill="#64ffda" opacity="0.55" />
+      <path d="M40 96 L36 110 M46 96 L48 110" stroke="#64ffda" strokeWidth="3" strokeLinecap="round" />
+      <circle cx="34" cy="70" r="3" fill="#64ffda" opacity="0.35" className="animate-pulse" />
+      <circle cx="28" cy="58" r="2" fill="#64ffda" opacity="0.25" className="animate-pulse" />
+    </svg>
+  );
+}
+
+function PetCorner() {
+  return (
+    <div className="relative mx-auto w-full max-w-[300px]">
+      <div className="group relative">
+        <div className="absolute inset-0 translate-x-3 translate-y-3 rounded border border-green transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2" />
+        <div className="relative overflow-hidden rounded bg-navy p-4">
+          <div className="absolute inset-0 bg-green/10 transition-opacity duration-300 group-hover:opacity-0" />
+          <div className="relative grid grid-cols-2 gap-1">
+            <CuteCat className="w-full drop-shadow-sm transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105" />
+            <CuteDuck className="w-full drop-shadow-sm transition-transform duration-300 group-hover:rotate-3 group-hover:scale-105" />
+          </div>
+          <p className="relative mt-1 text-center font-mono text-[11px] text-slate">
+            site supervisors
+          </p>
+        </div>
+      </div>
+      <p className="mt-4 text-center font-mono text-xs text-slate">
+        M.S. CS, UCF. GPA 3.9
+      </p>
+    </div>
+  );
+}
+
+const highlights = [
+  { label: "Years shipping", value: "4+" },
+  { label: "API latency cut", value: "~30%" },
+  { label: "Notify reliability", value: "90%+" },
+  { label: "Students mentored", value: "100+" },
+];
+
 const techList = [
   "Java",
   "TypeScript",
@@ -340,17 +424,42 @@ export default function App() {
           <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-slate">
             I am a software engineer specializing in backends, distributed services,
             and full stack platforms. Right now I am building software for{" "}
-            <a href="https://vera.research.ucf.edu/" target="_blank" rel="noopener noreferrer" className="link-green">
-              VERA
-            </a>
-            , an NSF funded XR research infrastructure project at UCF. Before that I
-            shipped banking middleware at Temenos and tax compliance software at Thomson Reuters.
+            <Highlight href="https://vera.research.ucf.edu/">VERA</Highlight>, an{" "}
+            <Highlight>NSF funded</Highlight> XR research infrastructure project at{" "}
+            <Highlight href="https://www.ucf.edu/">UCF</Highlight>. Before that I
+            shipped banking middleware at{" "}
+            <Highlight href="https://www.temenos.com/">Temenos</Highlight> and tax
+            compliance software at{" "}
+            <Highlight href="https://www.thomsonreuters.com/">Thomson Reuters</Highlight>.
           </p>
-          <div className="mt-10">
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="#experience" className="btn-filled">
               Check out my work
             </a>
+            <div className="flex -space-x-2" aria-hidden>
+              <div className="h-10 w-10 overflow-hidden rounded-full border border-green/30 bg-navy p-1">
+                <CuteCat className="h-full w-full" />
+              </div>
+              <div className="h-10 w-10 overflow-hidden rounded-full border border-green/30 bg-navy p-1">
+                <CuteDuck className="h-full w-full" />
+              </div>
+            </div>
           </div>
+        </section>
+
+        {/* Highlights */}
+        <section aria-label="Highlights" className="pb-6">
+          <ul className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {highlights.map((h) => (
+              <li
+                key={h.label}
+                className="rounded border border-navy-light bg-navy/50 px-4 py-4 transition-colors hover:border-green/40"
+              >
+                <p className="font-mono text-2xl font-semibold text-green">{h.value}</p>
+                <p className="mt-1 text-xs leading-snug text-slate">{h.label}</p>
+              </li>
+            ))}
+          </ul>
         </section>
 
         {/* About */}
@@ -361,15 +470,26 @@ export default function App() {
           <div className="grid gap-10 md:grid-cols-[3fr_2fr] md:gap-12">
             <div className="space-y-4 text-[1.02rem] leading-relaxed text-slate">
               <p>
-                Hello. I am Siri, a software engineer based in Orlando. I care about
-                clear interfaces, tests that catch ugly cases, and releases that do
-                not surprise anyone at 2am.
+                Hello. I am Siri, a software engineer based in{" "}
+                <Highlight>Orlando</Highlight>. I care about clear interfaces, tests
+                that catch ugly cases, and releases that do not surprise anyone at 2am.
               </p>
               <p>
-                My work spans enterprise banking middleware, NSF funded research
-                platforms, and teaching full stack engineering to 100+ students. I
-                like owning features end to end: design, implementation, CI/CD, and
-                production support.
+                My work spans enterprise banking middleware at{" "}
+                <Highlight href="https://www.temenos.com/">Temenos</Highlight>,{" "}
+                <Highlight>NSF funded</Highlight> research platforms like{" "}
+                <Highlight href="https://vera.research.ucf.edu/">VERA</Highlight>, and
+                teaching full stack engineering to{" "}
+                <Highlight>100+ students</Highlight> at UCF. I like owning features end
+                to end: design, implementation,{" "}
+                <Highlight>CI/CD</Highlight>, and production support. Lately that has
+                included <Highlight>Stripe</Highlight> payments, AWS telemetry pipelines,
+                and making legacy Node services less scary.
+              </p>
+              <p>
+                When I am offline, you will usually find me hanging out with my{" "}
+                <Highlight>cat</Highlight> and <Highlight>duck</Highlight>, or poking at
+                a side project that somehow turned into distributed systems again.
               </p>
               <p>Here are a few technologies I work with regularly:</p>
               <ul className="grid grid-cols-2 gap-x-4 gap-y-2 pt-1 font-mono text-sm">
@@ -381,18 +501,7 @@ export default function App() {
                 ))}
               </ul>
             </div>
-            <div className="relative mx-auto w-full max-w-[280px]">
-              <div className="group relative">
-                <div className="absolute inset-0 translate-x-3 translate-y-3 rounded border border-green transition-transform group-hover:translate-x-2 group-hover:translate-y-2" />
-                <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded bg-navy">
-                  <div className="absolute inset-0 bg-green/20 mix-blend-multiply transition-opacity group-hover:opacity-0" />
-                  <span className="font-mono text-5xl font-bold text-green/80">SM</span>
-                </div>
-              </div>
-              <p className="mt-4 text-center font-mono text-xs text-slate">
-                M.S. CS, UCF. GPA 3.9
-              </p>
-            </div>
+            <PetCorner />
           </div>
         </section>
 
@@ -414,9 +523,9 @@ export default function App() {
           <ul className="grid gap-4 sm:grid-cols-2">
             {projects.map((p) => (
               <li key={p.title}>
-                <article className="flex h-full flex-col rounded bg-navy p-6 transition-transform hover:-translate-y-1 sm:p-7">
+                <article className="group flex h-full flex-col rounded border border-transparent bg-navy p-6 shadow-none transition-all hover:-translate-y-1 hover:border-green/30 hover:shadow-[0_10px_30px_-15px_rgba(2,12,27,0.7)] sm:p-7">
                   <div className="mb-6 flex items-start justify-between">
-                    <svg className="h-8 w-8 text-green" fill="none" stroke="currentColor" strokeWidth="1.4" viewBox="0 0 24 24">
+                    <svg className="h-8 w-8 text-green transition-transform group-hover:scale-110" fill="none" stroke="currentColor" strokeWidth="1.4" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" />
                     </svg>
                     <div className="flex gap-3 text-slate">
@@ -428,7 +537,7 @@ export default function App() {
                       </a>
                     </div>
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-lightest transition-colors hover:text-green">
+                  <h3 className="text-lg font-semibold text-slate-lightest transition-colors group-hover:text-green">
                     <a href={p.github} target="_blank" rel="noopener noreferrer">
                       {p.title}
                     </a>
@@ -454,6 +563,8 @@ export default function App() {
           <p className="mt-5 text-[1.05rem] leading-relaxed text-slate">
             I am open to backend and full stack roles where ownership and reliability
             matter. Whether you have a question or a role in mind, my inbox is open.
+            The <Highlight>cat</Highlight> and <Highlight>duck</Highlight> approve most
+            emails within one business day.
           </p>
           <a href="mailto:sirimungi9@gmail.com" className="btn-filled mt-10 inline-block">
             Say Hello
