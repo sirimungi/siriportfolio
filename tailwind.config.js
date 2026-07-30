@@ -1,66 +1,50 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: 'class',
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        // Light mode colors
-        paper: "#F5F5F0",
-        beige: {
-          light: "#E8DCC4",
-          DEFAULT: "#D4C4B0",
-          dark: "#C4B4A0",
+        ink: {
+          DEFAULT: "#0B1220",
+          soft: "#2A3447",
+          mute: "#5C6B7A",
         },
-        dusty: {
-          light: "#A89B8E",
-          DEFAULT: "#9B8B7E",
-          dark: "#8A7A6D",
+        mist: {
+          DEFAULT: "#E8EEF2",
+          deep: "#D5DEE6",
+          wash: "#F3F6F8",
         },
-        lavender: {
-          light: "#C8B9E4",
-          DEFAULT: "#B8A9D4",
-          dark: "#9B88B8",
+        teal: {
+          DEFAULT: "#0F6B63",
+          bright: "#148F84",
+          soft: "#D7F0EC",
         },
-        // Dark mode colors
-        overcast: {
-          light: "#3D4E60",
-          DEFAULT: "#2C3E50",
-          dark: "#1A2530",
-        },
-        // Shared/accent colors
-        accent: {
-          light: "#C8B9E4",
-          DEFAULT: "#B8A9D4",
-          dark: "#9B88B8",
-        },
+        chalk: "#FAFBFC",
+      },
+      fontFamily: {
+        display: ['"Syne"', "system-ui", "sans-serif"],
+        sans: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
+        serif: ['"Source Serif 4"', "Georgia", "serif"],
+      },
+      fontSize: {
+        "display": ["clamp(3.5rem, 12vw, 8.5rem)", { lineHeight: "0.92", letterSpacing: "-0.04em", fontWeight: "700" }],
+        "headline": ["clamp(1.75rem, 4vw, 2.75rem)", { lineHeight: "1.15", letterSpacing: "-0.02em", fontWeight: "600" }],
+      },
+      maxWidth: {
+        content: "72rem",
       },
       animation: {
-        'gradient': 'gradient 8s linear infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'spin-slow': 'spin 20s linear infinite',
-        'bounce-slow': 'bounce 3s ease-in-out infinite',
+        "fade-up": "fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "line-draw": "lineDraw 1s cubic-bezier(0.22, 1, 0.36, 1) forwards",
       },
       keyframes: {
-        gradient: {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center'
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
-          },
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(18px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
-          '50%': { transform: 'translateY(-20px) rotate(5deg)' },
-        },
-        glow: {
-          '0%': { 'box-shadow': '0 0 20px rgba(255, 107, 53, 0.5)' },
-          '100%': { 'box-shadow': '0 0 40px rgba(255, 133, 85, 0.8)' },
+        lineDraw: {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
         },
       },
     },

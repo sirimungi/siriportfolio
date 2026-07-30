@@ -2,201 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ink: #0B1220;
+  --ink-soft: #2A3447;
+  --ink-mute: #5C6B7A;
+  --mist: #E8EEF2;
+  --mist-deep: #D5DEE6;
+  --mist-wash: #F3F6F8;
+  --teal: #0F6B63;
+  --teal-bright: #148F84;
+  --teal-soft: #D7F0EC;
+  --chalk: #FAFBFC;
+}
+
 * {
   scroll-behavior: smooth;
 }
 
+html {
+  color-scheme: light;
+}
+
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  color: var(--ink);
+  background-color: var(--mist-wash);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  position: relative;
   overflow-x: hidden;
-  transition: background-color 0.3s ease;
 }
 
-/* Light mode background */
-body {
-  background: linear-gradient(135deg, #F5F5F0 0%, #e5e1d7 50%, #ede2d5 100%);
-  background-size: 400% 400%;
-  animation: bgGradient 20s ease infinite;
-}
-
-/* Dark mode background */
-.dark body {
-  background: linear-gradient(135deg, #1A2530 0%, #2C3E50 50%, #34495E 100%);
-  background-size: 400% 400%;
-  animation: bgGradient 20s ease infinite;
-}
-
-@keyframes bgGradient {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-/* Animated background pattern - Light mode */
+/* Layered atmosphere — cool stone wash + soft grid, not flat */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(184, 169, 212, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(155, 136, 184, 0.1) 0%, transparent 50%);
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(15, 107, 99, 0.12), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(213, 222, 230, 0.9), transparent 50%),
+    linear-gradient(165deg, #F3F6F8 0%, #E8EEF2 45%, #DCE5EC 100%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.45;
+  background-image:
+    linear-gradient(rgba(11, 18, 32, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(11, 18, 32, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, black 20%, transparent 75%);
   pointer-events: none;
-  z-index: 0;
 }
 
-/* Animated background pattern - Dark mode */
-.dark body::before {
-  background-image: 
-    radial-gradient(circle at 20% 30%, rgba(184, 169, 212, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(155, 136, 184, 0.08) 0%, transparent 50%);
+::selection {
+  background: var(--teal-soft);
+  color: var(--ink);
 }
 
-code {
-  font-family: 'Fira Code', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* Custom scrollbar - Light mode */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #E8DCC4;
-  border-radius: 10px;
+  background: var(--mist);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #B8A9D4 0%, #9B88B8 100%);
-  border-radius: 10px;
-  border: 2px solid #E8DCC4;
+  background: var(--ink-mute);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #C8B9E4 0%, #B8A9D4 100%);
+  background: var(--teal);
 }
 
-/* Custom scrollbar - Dark mode */
-.dark ::-webkit-scrollbar-track {
-  background: #1A2530;
-}
+@layer components {
+  .section-pad {
+    @apply px-5 sm:px-8 lg:px-12;
+  }
 
-.dark ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #B8A9D4 0%, #9B88B8 100%);
-  border: 2px solid #1A2530;
-}
+  .section-rule {
+    @apply h-px w-full bg-ink/10;
+  }
 
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #C8B9E4 0%, #B8A9D4 100%);
-}
+  .accent-line {
+    @apply block h-0.5 w-12 origin-left bg-teal;
+  }
 
-/* Gradient text with animation */
-.gradient-text {
-  background: linear-gradient(135deg, #B8A9D4 0%, #9B88B8 50%, #A89B8E 100%);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradient 3s linear infinite;
-}
+  .link-underline {
+    @apply relative inline-block;
+  }
 
-@keyframes gradient {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
-}
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 
-/* Enhanced card hover effect */
-.card-hover {
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
-}
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
 
-.card-hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(184, 169, 212, 0.2), transparent);
-  transition: left 0.6s;
-  z-index: 1;
-}
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink px-6 py-3.5 text-sm font-medium tracking-wide text-chalk transition-colors duration-300 hover:bg-teal;
+  }
 
-.card-hover:hover::before {
-  left: 100%;
-}
-
-.card-hover:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 
-    0 20px 60px rgba(184, 169, 212, 0.3),
-    0 0 40px rgba(155, 136, 184, 0.2),
-    inset 0 0 20px rgba(184, 169, 212, 0.1);
-}
-
-/* Glassmorphism effect - Light mode */
-.glassmorphism {
-  background: rgba(245, 245, 240, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(184, 169, 212, 0.3);
-}
-
-/* Glassmorphism effect - Dark mode */
-.dark .glassmorphism {
-  background: rgba(26, 37, 48, 0.7);
-  border: 1px solid rgba(184, 169, 212, 0.3);
-}
-
-/* Glow border - Light mode */
-.glow-border {
-  position: relative;
-  border: 2px solid transparent;
-  background: linear-gradient(#F5F5F0, #F5F5F0) padding-box,
-              linear-gradient(135deg, #B8A9D4, #9B88B8) border-box;
-}
-
-/* Glow border - Dark mode */
-.dark .glow-border {
-  background: linear-gradient(#1A2530, #1A2530) padding-box,
-              linear-gradient(135deg, #B8A9D4, #9B88B8) border-box;
-}
-
-/* Frame effect - Light mode */
-.hero-frame {
-  border: 3px solid rgba(184, 169, 212, 0.4);
-  box-shadow: 
-    0 0 20px rgba(184, 169, 212, 0.2),
-    0 0 40px rgba(184, 169, 212, 0.1),
-    inset 0 0 30px rgba(184, 169, 212, 0.05);
-}
-
-/* Frame effect - Dark mode */
-.dark .hero-frame {
-  border: 3px solid rgba(184, 169, 212, 0.5);
-  box-shadow: 
-    0 0 20px rgba(184, 169, 212, 0.3),
-    0 0 40px rgba(184, 169, 212, 0.15),
-    inset 0 0 30px rgba(184, 169, 212, 0.08);
-}
-
-/* Floating animation */
-.float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 border border-ink/20 bg-transparent px-6 py-3.5 text-sm font-medium tracking-wide text-ink transition-colors duration-300 hover:border-teal hover:text-teal;
+  }
 }
