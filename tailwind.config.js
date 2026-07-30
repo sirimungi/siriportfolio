@@ -4,40 +4,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: {
-          DEFAULT: "#101820",
-          soft: "#2C3A47",
-          mute: "#667788",
+        navy: {
+          darkest: "#020c1b",
+          dark: "#0a192f",
+          DEFAULT: "#112240",
+          light: "#233554",
         },
-        paper: {
-          DEFAULT: "#F2F5F7",
-          deep: "#E4EAEF",
+        slate: {
+          lightest: "#ccd6f6",
+          light: "#a8b2d1",
+          DEFAULT: "#8892b0",
+          dark: "#495670",
         },
-        signal: {
-          DEFAULT: "#0C7C74",
-          bright: "#12A396",
-          wash: "#C8EDE9",
+        green: {
+          DEFAULT: "#64ffda",
+          tint: "rgba(100, 255, 218, 0.1)",
         },
-        chalk: "#F8FAFB",
-        night: "#0A1018",
       },
       fontFamily: {
-        display: ['"Syne"', "system-ui", "sans-serif"],
-        sans: ['"IBM Plex Sans"', "system-ui", "sans-serif"],
-        serif: ['"Source Serif 4"', "Georgia", "serif"],
-      },
-      fontSize: {
-        display: [
-          "clamp(3.75rem, 13vw, 9rem)",
-          { lineHeight: "0.88", letterSpacing: "-0.045em", fontWeight: "800" },
-        ],
-        headline: [
-          "clamp(1.85rem, 4.5vw, 3rem)",
-          { lineHeight: "1.1", letterSpacing: "-0.03em", fontWeight: "700" },
-        ],
+        sans: ['"Plus Jakarta Sans"', "system-ui", "sans-serif"],
+        mono: ['"IBM Plex Mono"', "ui-monospace", "monospace"],
       },
       maxWidth: {
-        content: "74rem",
+        content: "1000px",
       },
     },
   },
